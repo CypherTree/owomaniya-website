@@ -1,0 +1,27 @@
+# Project ignored #
+######################
+
+node_modules
+public/coverage
+config/s3.json
+npm-debug.log
+
+# OS generated files #
+######################
+
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+.DS_Store
+
+# from sublime text editor
+*.sublime-workspace
+*.sublime-project
+
+.idea
+# Build / Release folder
+public/dist/
+
+# Tests
+output/

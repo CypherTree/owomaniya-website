@@ -1,0 +1,57 @@
+{
+  "name": "angular-enterprise-boilerplate",
+  "version": "0.0.1",
+  "description": "Angular Enterprise Boilerplate",
+  "scripts": {
+    "start": "./node_modules/.bin/nodemon server.js",
+    "test": "./node_modules/.bin/gulp test"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "dependencies": {
+    "express": "~4.15.2",
+    "protractor": "^5.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/changer/sc-client.git"
+  },
+  "author": "Anit Rai <anit.rai@cyphertree.com>",
+  "contributors": [
+    "Madhavi Solanki <madhavi.solanki@cyphertree.com>"
+  ],
+  "license": "Cyphertree",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "bower": "~1.8.0",
+    "commander": "~2.9.0",
+    "concurrent-transform": "^1.0.0",
+    "ejs": "~2.5.6",
+    "gulp": "~3.9.1",
+    "gulp-angular-templatecache": "~2.0.0",
+    "gulp-awspublish": "3.3.0",
+    "gulp-bump": "~2.7.0",
+    "gulp-closure-compiler": "^0.4.0",
+    "gulp-concat": "~2.6.1",
+    "gulp-footer": "~1.0.5",
+    "gulp-header": "~1.8.8",
+    "gulp-if": "^2.0.2",
+    "gulp-ignore": "~2.0.2",
+    "gulp-minify-css": "~1.2.4",
+    "gulp-rename": "~1.2.0",
+    "gulp-replace": "^0.5.4",
+    "gulp-sourcemaps": "~2.4.1",
+    "gulp-uglify": "~2.1.2",
+    "jasmine-core": "^2.5.2",
+    "karma": "~1.5.0",
+    "karma-chrome-launcher": "~2.0.0",
+    "karma-coverage": "~1.1.1",
+    "karma-jasmine": "~1.1.0",
+    "karma-ng-html2js-preprocessor": "~1.0.0",
+    "karma-phantomjs-launcher": "~1.0.4",
+    "less-stream": "~0.1.4",
+    "nodemon": "~1.11.0",
+    "webdriver-manager": "^12.0.4"
+  }
+}
