@@ -5,6 +5,9 @@ node_modules
 public/coverage
 config/s3.json
 npm-debug.log
+public/bower_components
+bower_components
+package-lock.json
 
 # OS generated files #
 ######################
@@ -22,6 +25,7 @@ Thumbs.db
 .idea
 # Build / Release folder
 public/dist/
+dist/
 
 # Tests
 output/

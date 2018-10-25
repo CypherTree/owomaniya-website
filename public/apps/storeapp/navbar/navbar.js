@@ -9,9 +9,15 @@ var navbar = {
 };
 
 
-NavbarCtrl.$inject = [];
-function NavbarCtrl () {
-
+NavbarCtrl.$inject = ['$window'];
+function NavbarCtrl ($window) {
+ var vm = this;
+    vm.contactMe  = function (){
+        $window.open('mailto:madhavi.solanki@cyphertree.com','_blank')
+    }
+    vm.getGithubLink = function (){
+        $window.open('https://github.com/owomaniya','_blank')
+    }
 }
 
 
