@@ -1,10 +1,10 @@
 'use strict';
 
 /**
- * storeapp
+ * oWomaniya
  */
 
-angular.module('storeapp', [
+angular.module('owomaniya', [
   'ui.router',
   'ngMaterial',
   'navbar',
@@ -37,7 +37,7 @@ angular.module('storeapp', [
 
     $stateProvider.state('/', {
       url: '/',
-      templateUrl: '/apps/storeapp/home/home.html'
+      templateUrl: '/apps/oWomaniya/home/home.html'
     });
   }
 ])
@@ -68,5 +68,5 @@ angular.module('storeapp', [
  */
 
 angular.element(document).ready(function() {
-  angular.bootstrap(document, ['storeapp'], { strictDi: true });
+  angular.bootstrap(document, ['owomaniya'], { strictDi: true });
 });

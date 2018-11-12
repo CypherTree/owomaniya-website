@@ -63,7 +63,7 @@ module.exports = function (config) {
     coverageReporter: {
       type : 'lcov',
       dir : '../../coverage/',
-      subdir: 'storeapp'
+      subdir: 'oWomaniya'
     },
 
 

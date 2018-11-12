@@ -1,7 +1,7 @@
 {
-  "name": "oWomaniya",
+  "name": "owomaniya-website",
   "version": "0.0.1",
-  "description": "oWomaniya",
+  "description": "owomaniya-website",
   "scripts": {
     "start": "./node_modules/.bin/nodemon server.js",
     "test": "./node_modules/.bin/gulp test"

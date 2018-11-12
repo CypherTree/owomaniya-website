@@ -62,7 +62,7 @@ buildLocales();
 // create all release tasks
 apps.forEach(function (app) {
   envs.forEach(function (env) {
-    gulp.task('release:' + app + ':' + env, function () {
+    gulp.task('release:' + app , function () {
       return release.call(this, app, env);
     });
   });
@@ -388,7 +388,7 @@ function release(name, env) {
     '<script src="component-tpls-' + pkg.version +'/templates.js" type="text/javascript"></script>'
   ].join('')
 
-  var config = '<script>' + 'window.CONFIG =  window.CONFIG || ' + JSON.stringify(pkg.config[env]) + ';</script>';
+  var config = '<script>' + 'window.CONFIG =  window.CONFIG || ' + ';</script>';
   gulp.src([__dirname + '/public/apps/' + pkg.name + '/production.html'])
     .pipe(rename('index.html'))
     .pipe(replace('<!-- INSERT_CONFIG -->', config))

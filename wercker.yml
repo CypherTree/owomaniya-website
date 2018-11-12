@@ -29,8 +29,8 @@ build:
 deploy:
   steps:
     - script:
-        name: deploy storeapp
-        code: ./node_modules/.bin/gulp release:storeapp && ./node_modules/.bin/gulp publish:storeapp
+        name: deploy oWomaniya
+        code: ./node_modules/.bin/gulp release:oWomaniya && ./node_modules/.bin/gulp publish:oWomaniya
 
   after-steps:
       - wantedly/pretty-slack-notify:

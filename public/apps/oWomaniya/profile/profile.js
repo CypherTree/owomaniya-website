@@ -6,7 +6,7 @@
     function config($stateProvider) {
       $stateProvider.state('profile', {
         url: '/profile',
-        templateUrl: '/apps/storeapp/profile/profile.html',
+        templateUrl: '/apps/oWomaniya/profile/profile.html',
         controller: profileCtrl,
         controllerAs: 'vm',
         title: 'profile'

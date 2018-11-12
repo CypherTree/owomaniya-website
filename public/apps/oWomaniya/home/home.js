@@ -51,7 +51,7 @@ config.$inject = ['$stateProvider'];
 function config($stateProvider) {
   $stateProvider.state('home', {
     url: '/home',
-    templateUrl: '/apps/storeapp/home/home.html',
+    templateUrl: '/apps/oWomaniya/home/home.html',
     controller: HomeCtrl,
     controllerAs: 'vm'
   });

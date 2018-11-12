@@ -46,7 +46,7 @@ apps.forEach(function (name) {
 });
 
 app.get('/', function (req, res) {
-  serve('storeapp', res);
+  serve('oWomaniya', res);
 });
 
 app.options('*', function (req, res) {

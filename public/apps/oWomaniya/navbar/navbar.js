@@ -5,7 +5,7 @@ var navbar = {
     bindings: { },
     controllerAs: 'vm',
     controller: NavbarCtrl,
-    templateUrl: '/apps/storeapp/navbar/navbar.html'
+    templateUrl: '/apps/oWomaniya/navbar/navbar.html'
 };
 
 
