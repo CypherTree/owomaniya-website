@@ -1,12 +1,62 @@
-
-<ul class="landing-apps" cg-busy="promise">
-  <li ng-repeat="app in apps">
-    <a href="/{{ app._id }}" title="{{ app.title }}">
-      <i class="fa fa-{{ app._id }}"></i>
-      <span>{{ app.title }}</span>
-    </a>
-  </li>
-</ul>
-
-<div class="text-center clearfix">
-</div>
+<md-content class="md-padding" layout-xs="column" layout="row" ng-controller="HomeCtrl as vm">
+	<div flex-xs flex-gt-xs="20" layout="column"></div>
+	<div flex-xs flex-gt-xs="50" layout="column">
+			<md-card md-theme="default">
+					<md-card-title>
+						<md-card-title-text>
+								<span class="md-headline"><h1>Welcome To oWomaniya!!</h1></span>
+						</md-card-title-text>
+					</md-card-title>
+					<md-divider></md-divider>
+					<md-card-content>
+							<md-list  ng-cloak>
+								<md-list-item>
+										<p>Hi, we are organizing a hackathon (oWomaniya) for women in tech, where we will create a web/mobile app or a portal to help, educate and support women. This will be open source contribution.</p>
+								</md-list-item>
+								<md-list-item>
+										<h2>Theme of hackathon is to address following issues: </h2>
+								</md-list-item>
+								<md-list-item>
+										<md-chips>
+												<md-chip>Sexual harassment</md-chip>
+												<md-chip>Pregnancy discrimination</md-chip>
+												<md-chip>Appearance</md-chip>
+												<md-chip>Work-life imbalance</md-chip>
+												<md-chip>Gender bias</md-chip>
+										</md-chips>
+								</md-list-item>
+								<md-divider></md-divider>
+								<md-list-item>
+										<h2>Who can join? If you are: </h2>
+								</md-list-item>
+								<md-list-item class="md-2-line"  layout="row">
+										<md-chips>
+											<md-chip>Ui Developer</md-chip>
+											<md-chip>Web Developer</md-chip>
+											<md-chip>Backend developer</md-chip>
+											<md-chip>Mobile developer</md-chip>
+											<md-chip>Designer</md-chip>
+											<md-chip>QA</md-chip>
+											<md-chip>Content Writer</md-chip>
+											<md-chip>Social media manager</md-chip>
+											<md-chip>Lawyer</md-chip>
+										</md-chips>
+								</md-list-item>
+								<md-divider></md-divider>
+								<md-list-item>
+										<h2>Let's connect.. </h2>
+								</md-list-item>
+								<md-list-item>
+										<md-button class="md-raised md-primary" ng-click="vm.signInGithub()">Sign Up With Github</md-button>
+										<md-button class="md-raised md-accent" ng-click="vm.signInGoogle()">Sign In With Google</md-button>
+								</md-list-item>
+						</md-list>
+				</md-card-content>
+					<!-- <md-card-actions layout="row" layout-align="end center">
+					<md-button>Action 1</md-button>
+					<md-button>Action 2</md-button>
+					</md-card-actions> -->
+			</md-card>
+    </div>
+  <div flex-xs flex-gt-xs="20" layout="column"></div>
+</md-content>

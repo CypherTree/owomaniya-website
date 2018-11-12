@@ -11,12 +11,20 @@
     "angular-translate/angular-translate.js",
     "angular-ui-router/release/angular-ui-router.js",
     "angular-material/angular-material.js",
-    "moment/moment.js"
+    "moment/moment.js",
+    "firebase/firebase.js",
+    "firebase/firebase-app.js",
+    "firebase/firebase-auth.js",
+    "angularfire/dist/angularfire.js",
+    "angular-avatar/dist/angular-avatar.min.js"
   ],
   "components": [
+    "avatar/avatar.js"
   ],
   "files": [
     "app.js",
+    "home/home.js",
+    "profile/profile.js",
     "navbar/navbar.js"
   ]
 }

@@ -1,7 +1,7 @@
 {
-  "name": "angular-enterprise-boilerplate",
+  "name": "oWomaniya",
   "version": "0.0.1",
-  "description": "Angular Enterprise Boilerplate",
+  "description": "oWomaniya",
   "scripts": {
     "start": "./node_modules/.bin/nodemon server.js",
     "test": "./node_modules/.bin/gulp test"
@@ -17,9 +17,10 @@
     "type": "git",
     "url": "https://github.com/changer/sc-client.git"
   },
-  "author": "Anit Rai <anit.rai@cyphertree.com>",
+  "author": "Madhavi Solanki <madhavi.solanki@cyphertree.com>",
   "contributors": [
-    "Madhavi Solanki <madhavi.solanki@cyphertree.com>"
+    "Madhavi Solanki <madhavi.solanki@cyphertree.com>",
+    "Bhoomi Bhalani <bhoomib@cyphertree.com>"
   ],
   "license": "Cyphertree",
   "readmeFilename": "README.md",

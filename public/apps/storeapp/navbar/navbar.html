@@ -1,22 +1,31 @@
 <div layout="row" layout-padding class="bg-dark-blue nav-dark" layout-align="space-between center">
     <div>
-        <md-button>Home</md-button>
-        <md-button ui-sref="mobiles">Mobiles</md-button>
-        <md-button ui-sref="computers">Computers</md-button>
-        <md-menu>
-            <md-button md-menu-origin ng-click="$mdOpenMenu()">Help</md-button>
-            <md-menu-content width="2">
-                <md-menu-item>
-                    <md-button ui-sref="help">Help</md-button>
-                </md-menu-item>
-                <md-menu-item>
-                    <md-button ui-sref="about">About</md-button>
-                </md-menu-item>
-            </md-menu-content>
-        </md-menu>
+        <md-button ui-sref="home">oWomaniya</md-button>
     </div>
-    <div class="nav-buttons">
-        <md-button class="md-raised md-accent">My profile</md-button>
-        <md-button class="md-raised md-warn">Log Out</md-button>
+    <div class="" ng-hide="vm.token">
+				<form name="loginForm">
+						<md-input-container flex="40">
+							<label>Email Address</label>
+							<input required type="email" name="email" ng-model="vm.email"
+               minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+							<div ng-messages="loginForm.email.$error">
+								<div ng-message="required">This is required.</div>
+							</div>
+						</md-input-container>
+		
+						<md-input-container flex="40">
+								<label>Password </label>
+								<input required name="password" ng-model="vm.password" type="password">
+								<div ng-messages="loginForm.password.$error">
+									<div ng-message="required">This is required.</div>
+								</div>
+							</md-input-container>
+					<md-input-container flex="40">
+            <md-button class="md-raised md-warn" ng-click="vm.loginWithEmailAndPwd()">LogIn</md-button>
+			</md-input-container>
+		</form>
+    </div> 
+    <div class="" ng-if="vm.displayName">
+        <avatar pic="vm.photoURL" size="cs-avatar-med"></avatar><span>{{vm.displayName}}</span>
     </div>
 </div>

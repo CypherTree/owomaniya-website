@@ -1,0 +1,44 @@
+<div ng-class="{'unread_avatar': vm.unread && !vm.avatarImage && vm.ready} " ng-if="vm.unread && !vm.avatarImage && vm.ready"></div>
+<img ng-if="!!vm.avatarImage&& vm.ready"
+  class="cs-avatar {{vm.size}}"
+  alt="{{ vm.initials }}"
+  ng-src="{{ vm.avatarImage }}"
+  ng-error="vm.avatarImage= null;">
+
+<div class="ng-avatar" ng-if="!vm.avatarImage && vm.ready">
+  <div ng-class="{'unread_avatar': vm.unread}" ng-if="vm.unread"></div>
+  <ng-avatar
+    ng-if="!vm.avatarImage && vm.ready && !vm.bgcolor"
+    round-shape="true"
+    upper-case="true"
+    auto-color="true"
+    bind="true"
+    initials="{{vm.initials || 'N/A'}}"
+    picture-resolution="{{vm.resolution}}"
+    pixelated="false"
+    class="cs-avatar {{vm.size}}">
+  </ng-avatar>
+
+  <ng-avatar
+    ng-if="!vm.avatarImage && vm.ready && vm.bgcolor"
+    round-shape="true"
+    upper-case="true"
+    bg-color="{{vm.bgcolor}}"
+    initials="{{vm.initials || 'N/A'}}"
+    picture-resolution="{{vm.resolution}}"
+    pixelated="false"
+    class="cs-avatar {{vm.size}}">
+  </ng-avatar>
+</div>
+
+<div class="ng-avatar" ng-if="!vm.avatarImage && !vm.ready">
+  <ng-avatar
+    round-shape="true"
+    upper-case="true"
+    bg-color="#F0F1F0"
+    initials=""
+    picture-resolution="{{vm.resolution}}"
+    pixelated="false"
+    class="cs-avatar {{vm.size}}">
+  </ng-avatar>
+</div>

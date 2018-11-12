@@ -1,0 +1,201 @@
+//Avatar mixin
+.cs-avatar-size(@size){
+    width:@size !important;
+    height:@size !important;
+  }
+  //Global class for avatar
+  // use sizes options for avatar
+  
+  .cs-avatar {
+    .cs-avatar-size(40px);
+    object-fit: contain;
+    max-width: inherit;
+    display: inline-block;
+    border-radius: 50%;
+    margin:0 auto;
+    background: transparent;
+    box-shadow: inset 0 0 10px #ffffff;
+  
+    &.client-placeholder {
+      object-fit: none;
+      display: inline-block;
+      max-width: none;
+      box-shadow: none;
+      background-color: #F0F1F0;
+      color: #818386;
+      font-size: 1.4em;
+      text-align: center;
+  
+      &.cs-avatar-med {
+        font-size: 20px;
+        line-height: 28px;
+      }
+      &.cs-avatar-40 {
+        font-size: 1.5em;
+        line-height: 34px;
+      }
+      &.cs-avatar-large {
+        font-size: 1.7em;
+        line-height: 34px;
+      }
+      &.cs-avatar-50 {
+        line-height: 42px;
+        font-size: 1.8em;
+      }
+    }
+    &.border-light {
+      border: 1px solid #888888;
+    }
+    &.border-radius-6 {
+      border-radius: 6px;
+    }
+    &.cs-avatar-smallest{
+      .cs-avatar-size(18px);
+    }
+    &.cs-avatar-small{
+      .cs-avatar-size(25px);
+    }
+    &.cs-avatar-med{
+      .cs-avatar-size(35px);
+    }
+    &.cs-avatar-large{
+      .cs-avatar-size(45px);
+    }
+    &.cs-avatar-largest{
+      .cs-avatar-size(75px);
+    }
+    &.cs-avatar-navbar{
+      border-radius: 6px;
+      width:45px !important;
+      height:45px !important;
+      background-color: gray;
+    }
+  
+    &.cs-avatar-15 {
+      .cs-avatar-size(15px);
+    }
+    &.cs-avatar-20 {
+      .cs-avatar-size(20px);
+    }
+    &.cs-avatar-22 {
+      .cs-avatar-size(22px);
+    }
+    &.cs-avatar-25 {
+      .cs-avatar-size(25px);
+    }
+    &.cs-avatar-30 {
+      .cs-avatar-size(30px);
+    }
+    &.cs-avatar-35 {
+      .cs-avatar-size(35px);
+    }
+    &.cs-avatar-40 {
+      .cs-avatar-size(40px);
+    }
+    &.cs-avatar-50 {
+      .cs-avatar-size(50px);
+    }
+    &.cs-avatar-55 {
+      .cs-avatar-size(55px);
+    }
+    &.cs-avatar-60 {
+      .cs-avatar-size(60px);
+    }
+    &.cs-avatar-80 {
+      .cs-avatar-size(80px);
+    }
+    &.cs-avatar-100 {
+      .cs-avatar-size(100px);
+    }
+    &.cs-avatar-125 {
+      .cs-avatar-size(125px);
+    }
+    &.cs-avatar-140 {
+      .cs-avatar-size(140px);
+    }
+    &.cs-avatar-160 {
+      .cs-avatar-size(160px);
+    }
+    &.cs-avatar-225 {
+      .cs-avatar-size(225px);
+    }
+    &.no-rounded{
+      border-radius:0;
+    }
+    &.logo-edit {
+      box-shadow: none;
+      background-color: #676767;
+    }
+  }
+  
+    &.cs-avatar-smallest{
+      .cs-avatar-size(18px);
+    }
+    &.cs-avatar-small{
+      .cs-avatar-size(25px);
+    }
+    &.cs-avatar-med{
+      .cs-avatar-size(30px);
+    }
+    &.cs-avatar-large{
+      .cs-avatar-size(45px);
+    }
+    &.cs-avatar-largest{
+      .cs-avatar-size(75px);
+    }
+  .ng-avatar {
+    vertical-align: middle;
+    display: inline-block !important;
+  }
+  .avatar-hidden {
+    display: none !important;
+  }
+  .default-avatar {
+    width: inherit !important;
+    height: inherit !important;
+  }
+  .cs-avatar-navbar{
+    border-radius: 6px !important;
+    object-fit: contain;
+    width: 43px;
+    height: 43px;
+    background: transparent;
+  }
+  .square-avatar{
+    border-radius: 6px !important;
+  }
+  .unread_avatar{
+    border-radius: 50%;
+    height: 5px;
+    width: 5px;
+    border: 5px solid orange;
+    position: relative;
+    top:11px;
+    left: 24px;
+    margin-top: -10px;
+  }
+  
+  .avatar-group-container{
+    min-height: 30px;
+    cs-avatar:not(:first-child) {
+      margin-left: -10px;
+    }
+    .cs-avatar {
+      background: none;
+      box-shadow: none;
+    }
+    > .ng-avatar {
+      margin-left: -10px;
+    }
+  
+    .avatar-wrapper { display: inline-block; }
+    .avatar-wrapper:not(:first-child) {
+      margin-left: -10px;
+      cs-avatar { margin-left: 0; }
+    }
+  
+    &.avatar-group-25 {
+      min-height: 25px;
+    }
+  }
+  

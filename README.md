@@ -1,6 +1,6 @@
 ## angular-enterprise-boilerplate
 
-Angular Enterprise Boilerplate
+oWomaniya
 
 ## Dependencies
 

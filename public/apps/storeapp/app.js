@@ -7,7 +7,10 @@
 angular.module('storeapp', [
   'ui.router',
   'ngMaterial',
-  'navbar'
+  'navbar',
+  'home',
+  'firebase',
+  'profile'
 ])
 
 /**
@@ -32,7 +35,7 @@ angular.module('storeapp', [
     $httpProvider.useApplyAsync(true);
     $compileProvider.debugInfoEnabled(false);
 
-    $stateProvider.state('home', {
+    $stateProvider.state('/', {
       url: '/',
       templateUrl: '/apps/storeapp/home/home.html'
     });
@@ -44,8 +47,18 @@ angular.module('storeapp', [
  */
 
 .controller('AppCtrl', [
-  '$scope',
-  function ($scope) {
+  '$scope','$firebaseAuth',
+  function ($scope, $firebaseAuth) {
+    var config = {
+      apiKey: "AIzaSyDggz5R8EBXXs4Mh-BBOH5xBpX6H4o1oe4",
+      authDomain: "owomaniya-5d939.firebaseapp.com",
+      databaseURL: "https://owomaniya-5d939.firebaseio.com",
+      projectId: "owomaniya-5d939",
+      storageBucket: "gs://owomaniya-5d939.appspot.com",
+      messagingSenderId: "<SENDER_ID>",
+  };
+  firebase.initializeApp(config);
+
 
   }
 ]);
