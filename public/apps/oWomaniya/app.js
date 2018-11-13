@@ -17,8 +17,8 @@ angular.module('owomaniya', [
  * Application wide constants
  */
 
-.constant('apiURL', window.CONFIG.host.concat(window.CONFIG.uri.replace(/\/$/, '')))
-.constant('apiHOST', window.CONFIG.host)
+// .constant('apiURL', window.CONFIG.host.concat(window.CONFIG.uri.replace(/\/$/, '')))
+// .constant('apiHOST', window.CONFIG.host)
 
 
 /**

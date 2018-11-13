@@ -10,7 +10,10 @@ var minifyCSS = require('gulp-minify-css');
 var aws = require('gulp-awspublish');
 var parallelize = require("concurrent-transform");
 var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
+var ngAnnotate = require('gulp-ng-annotate');
+var uglifyes = require('uglify-es');
+var composer = require('gulp-uglify/composer');
+var uglify = composer(uglifyes, console);
 var rename = require('gulp-rename');
 var header = require('gulp-header');
 var footer = require('gulp-footer');
@@ -20,8 +23,8 @@ var less = require('less-stream');
 var gulpif = require('gulp-if');
 var gulp = require('gulp');
 var fs = require('fs');
-var closureCompiler = require('gulp-closure-compiler');
-
+var timestamp = Date.now();
+const shell = require('gulp-shell')
 
 // conventions
 var fonts = ['.eot', '.svg', '.ttf', '.woff', '.otf'];
@@ -82,7 +85,12 @@ gulp.task('bump', function () {
   return gulp.src(path + '/app.json')
     .pipe(gulp.dest(path + '/'));
 });
-
+/**
+ * firebase deploy
+ */
+gulp.task('firebase', shell.task([
+  'firebase deploy'
+]))
 /**
  * Concat js
  */
@@ -108,16 +116,9 @@ gulp.task('concat', ['bump', 'templates'], function () {
 
 gulp.task('minify', ['concat'], function () {
   return gulp.src(dist + '/app.js')
+    .pipe(ngAnnotate())
     .pipe(uglify({mangle: false}))
-    .pipe(closureCompiler({
-      compilerPath: 'public/bower_components/closure-compiler/compiler.jar',
-      fileName: 'app.' + pkg.version + '.min.js',
-      continueWithWarnings: true,
-      compilerFlags: {
-        warning_level: 'QUIET',
-      }
-    }))
-    .pipe(gulp.dest(dist))
+    .pipe(rename('app.min.js'))
     .pipe(header(banner, {pkg: pkg}))
     .pipe(footer('//# sourceMappingURL=app.js.map'))
     .pipe(gulp.dest(dist + '/'));
@@ -401,11 +402,11 @@ function release(name, env) {
     'component-templates',
     'concat',
     'minify',
-    'less',
     'minify-css',
     'copy:fonts',
     'copy:img',
-    'copy:favicons'
+    'copy:favicons',
+    'less'
   );
 }
 
