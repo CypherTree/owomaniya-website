@@ -22,7 +22,7 @@ Open `http://localhost:8800` to see on your local environment.
 ```
 $ gulp release:oWomaniya
 ```
-Which creates build and newly dist folder will be generated inside public folder.
+Which creates build and  dist folder will be generated inside public folder.
 
 ## Deploy
 ```
