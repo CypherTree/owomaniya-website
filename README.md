@@ -1,6 +1,6 @@
 ## owomaniya-website
 
-oWomaniya
+oWomaniya is for women in tech, where we will create a web/mobile app or a portal to help, educate and support women.
 
 ## Dependencies
 
@@ -16,6 +16,8 @@ $ npm install
 $ npm start
 ```
 
-Open `http://localhost:3000/APPNAME`. APPNAME can be any app from `public/apps`
+Open `http://localhost:8800` to see on your local environment.
+
+
 
 
