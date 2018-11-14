@@ -7,12 +7,13 @@
 var templateCache = require('gulp-angular-templatecache');
 var sourcemaps = require('gulp-sourcemaps');
 var minifyCSS = require('gulp-minify-css');
+var gulpIgnore = require('gulp-ignore');
 var aws = require('gulp-awspublish');
 var parallelize = require("concurrent-transform");
 var concat = require('gulp-concat');
-var ngAnnotate = require('gulp-ng-annotate');
 var uglifyes = require('uglify-es');
 var composer = require('gulp-uglify/composer');
+var ngAnnotate = require('gulp-ng-annotate');
 var uglify = composer(uglifyes, console);
 var rename = require('gulp-rename');
 var header = require('gulp-header');
@@ -20,18 +21,21 @@ var footer = require('gulp-footer');
 var replace = require('gulp-replace');
 var karma = require('karma').server;
 var less = require('less-stream');
+var bump = require('gulp-bump');
 var gulpif = require('gulp-if');
 var gulp = require('gulp');
 var fs = require('fs');
-var timestamp = Date.now();
-const shell = require('gulp-shell')
+var angularProtractor = require('gulp-angular-protractor');
+let babel = require('gulp-babel');
+
 
 // conventions
 var fonts = ['.eot', '.svg', '.ttf', '.woff', '.otf'];
 var images = ['.png', '.jpeg', '.jpg', '.gif'];
-var envs = ['dev', 'staging', 'production'];
+var envs = ['dev', 'staging', 'uat', 'production'];
 var apps = fs.readdirSync(__dirname + '/public/apps');
 var locales = fs.readdirSync(__dirname + '/public/locales');
+var timestamp = Date.now();
 
 // make sure apps only contains dirs
 apps = apps.filter(dir(__dirname + '/public/apps'));
@@ -65,7 +69,7 @@ buildLocales();
 // create all release tasks
 apps.forEach(function (app) {
   envs.forEach(function (env) {
-    gulp.task('release:' + app , function () {
+    gulp.task('release:' + app + ':' + env, function () {
       return release.call(this, app, env);
     });
   });
@@ -85,12 +89,7 @@ gulp.task('bump', function () {
   return gulp.src(path + '/app.json')
     .pipe(gulp.dest(path + '/'));
 });
-/**
- * firebase deploy
- */
-gulp.task('firebase', shell.task([
-  'firebase deploy'
-]))
+
 /**
  * Concat js
  */
@@ -118,7 +117,7 @@ gulp.task('minify', ['concat'], function () {
   return gulp.src(dist + '/app.js')
     .pipe(ngAnnotate())
     .pipe(uglify({mangle: false}))
-    .pipe(rename('app.min.js'))
+    .pipe(rename('app.' + timestamp + '.min.js'))
     .pipe(header(banner, {pkg: pkg}))
     .pipe(footer('//# sourceMappingURL=app.js.map'))
     .pipe(gulp.dest(dist + '/'));
@@ -161,7 +160,7 @@ gulp.task('less', ['bump', 'concat'], function () {
 gulp.task('minify-css', ['less'], function () {
   return gulp.src(dist + '/app.css')
     .pipe(minifyCSS())
-    .pipe(rename('app.' + pkg.version + '.min.css'))
+    .pipe(rename('app.' + timestamp + '.min.css'))
     .pipe(header(banner, {pkg: pkg}))
     .pipe(gulp.dest(dist));
 });
@@ -187,7 +186,7 @@ gulp.task('templates', ['bump'], function () {
  */
 
 gulp.task('component-templates', ['templates'], function () {
-  files.push(dist + '/component-tpls-' + pkg.version +'/templates.js');
+  files.push(dist + '/component-tpls-' + timestamp +'/templates.js');
 
   var _tpls = [];
 
@@ -196,8 +195,6 @@ gulp.task('component-templates', ['templates'], function () {
   });
 
   _tpls.push('!./components/**/*_test.html');
-  _tpls.push('!./components/**/*_example*.html');
-  
 
   // ignore coverage folder
   return gulp.src(_tpls)
@@ -208,17 +205,28 @@ gulp.task('component-templates', ['templates'], function () {
         return '/' + arr[1]
       }
     }))
-    .pipe(gulp.dest(dist + '/component-tpls-' + pkg.version));
+    .pipe(gulp.dest(dist + '/component-tpls-' + timestamp));
 });
 
 /**
- * test components
+ * test modules
  */
 
-gulp.task('test:components', function (done) {
-  karma.start({
-    configFile: __dirname + '/components/karma.conf.js'
-  }, done);
+gulp.task('test', function (callback) {
+
+     gulp
+         .src([__dirname+'/public/apps/adminapp/**/test/**_test.js'])
+         .pipe(angularProtractor({
+             'configFile': 'public/apps/adminapp/app.test.config.js',
+             'debug': false,
+             'args': ['--suite', 'adminapp'],
+             'autoStartStopServer': true
+         }))
+         .on('error', function(e) {
+             console.log('Error error', e);
+             callback(e);
+         })
+        .on('end', callback);
 });
 
 /**
@@ -254,6 +262,16 @@ gulp.task('copy:favicons', function () {
 
 
 /**
+ * copy maintenance
+ */
+
+gulp.task('copy:maintenance', function () {
+  return gulp.src([__dirname + '/public/assets/maintenance.html'])
+    .pipe(gulp.dest(dist));
+});
+
+
+/**
  * Default
  */
 
@@ -262,26 +280,27 @@ gulp.task('default', [
   'release'
 ]);
 
-/**
- * test an app
- */
 
-function test(app, done) {
+// /**
+//  * test an app
+//  */
+//
+ function test() {
   karma.start({
     configFile: __dirname + '/public/apps/' + app + '/karma.conf.js'
   }, done);
-}
+ }
 
 /**
  * test all apps
  */
 
 function tests() {
-  var tasks = ['test:components'];
+  var tasks = ['test:adminapp'];
   apps.forEach(function (app) {
     tasks.push('test:' + app);
     gulp.task('test:' + app, function (done) {
-      return test.call(this, app, done);
+      return test.call(this);
     });
   });
   // gulp test
@@ -372,6 +391,7 @@ function release(name, env) {
   pkg = require(path + '/app.json');
   dist = './public/dist/' + pkg.name;
   env = env;
+  var cdns = [];
 
   files = pkg.dependencies.map(function (dep) {
     return 'public/bower_components/' + dep;
@@ -383,16 +403,40 @@ function release(name, env) {
     return 'public/apps/' + name + '/' + file;
   }));
 
-  var cssJsIncludes = [
-    '<link rel="stylesheet" href="app.' + pkg.version + '.min.css"/>',
-    '<script src="app.' + pkg.version + '.min.js" type="text/javascript"></script>',
-    '<script src="component-tpls-' + pkg.version +'/templates.js" type="text/javascript"></script>'
-  ].join('')
+  if (pkg.cdns) {
+    cdns = pkg.cdns.map(function(cdn) {
+      var url = '';
+      if ((typeof cdn) === 'object') {
+        url = cdn.url;
+        if (cdn.params && cdn.params.length > 0) {
+          url = url + '?';
+          cdn.params.forEach(function(param, index) {
+            url = url + (index > 0 ? '&' + param.key + '=':param.key + '=');
 
-  var config = '<script>' + 'window.CONFIG =  window.CONFIG || ' + ';</script>';
+            if (param.value) { url = url + param.value; }
+            else if (param.config) { url = url + pkg.config[env][param.config]; }
+          });
+        }
+      }
+      else { url = cdn; }
+
+      return '<script type="text/javascript" src="' + url + '"' + (cdn.async ? ' async':'') + (cdn.defer ? ' defer':'') + '></script>';
+    });
+  }
+
+  var cssJsIncludes = [
+    '<link rel="stylesheet" href="app.' + timestamp + '.min.css"/>',
+    '<script src="app.' + timestamp + '.min.js" type="text/javascript"></script>',
+    '<script src="component-tpls-' + timestamp +'/templates.js" type="text/javascript"></script>'
+  ].join('');
+
+  var cdnIncludes = cdns.join('');
+
+  var config = '<script>' + 'window.CONFIG =  window.CONFIG || ' + JSON.stringify(pkg.config[env]) + ';</script>';
   gulp.src([__dirname + '/public/apps/' + pkg.name + '/production.html'])
     .pipe(rename('index.html'))
     .pipe(replace('<!-- INSERT_CONFIG -->', config))
+    .pipe(replace('<!-- INSERT_CDNS -->', cdnIncludes))
     .pipe(replace('<!-- INSERT_CSS_JS -->', cssJsIncludes))
     .pipe(gulp.dest(dist));
 
@@ -402,11 +446,12 @@ function release(name, env) {
     'component-templates',
     'concat',
     'minify',
+    'less',
     'minify-css',
     'copy:fonts',
     'copy:img',
     'copy:favicons',
-    'less'
+    'copy:maintenance'
   );
 }
 
@@ -459,9 +504,6 @@ function upload(env, app) {
   // require it again so that the process.env's are replaced
   var s3creds = require('./config/s3');
   var creds = s3creds[env];
-
-  creds.params = { Bucket: creds.bucket };
-  console.log('creds are ', creds);
   var s3 = aws.create(creds);
 
   // Set max-age depending on env

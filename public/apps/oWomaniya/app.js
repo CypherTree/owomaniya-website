@@ -4,7 +4,7 @@
  * oWomaniya
  */
 
-angular.module('owomaniya', [
+angular.module('oWomaniya', [
   'ui.router',
   'ngMaterial',
   'navbar',
@@ -49,6 +49,7 @@ angular.module('owomaniya', [
 .controller('AppCtrl', [
   '$scope','$firebaseAuth',
   function ($scope, $firebaseAuth) {
+
     var config = {
       apiKey: "AIzaSyDggz5R8EBXXs4Mh-BBOH5xBpX6H4o1oe4",
       authDomain: "owomaniya-5d939.firebaseapp.com",
@@ -56,9 +57,11 @@ angular.module('owomaniya', [
       projectId: "owomaniya-5d939",
       storageBucket: "gs://owomaniya-5d939.appspot.com",
       messagingSenderId: "<SENDER_ID>",
-  };
-  firebase.initializeApp(config);
+    };
 
+    if (!firebase.apps.length) {
+      firebase.initializeApp(config);
+    }
 
   }
 ]);
@@ -68,5 +71,5 @@ angular.module('owomaniya', [
  */
 
 angular.element(document).ready(function() {
-  angular.bootstrap(document, ['owomaniya'], { strictDi: true });
+  angular.bootstrap(document, ['oWomaniya'], { strictDi: true });
 });

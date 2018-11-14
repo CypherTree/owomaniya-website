@@ -24,7 +24,6 @@ $ gulp release:oWomaniya
 ```
 Which creates build and  dist folder will be generated inside public folder.
 
-
 ## Deploy
 ```
 $ firebase deploy
