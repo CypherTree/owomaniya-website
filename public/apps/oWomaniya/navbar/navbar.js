@@ -13,8 +13,6 @@ NavbarCtrl.$inject = ['$scope','$state'];
 function NavbarCtrl ($scope, $state) {
     var vm = this;
     vm.loginWithEmailAndPwd = function () {
-      console.log(vm.email)
-      console.log(vm.password)
       firebase.auth().signInWithEmailAndPassword(vm.email, vm.password).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
