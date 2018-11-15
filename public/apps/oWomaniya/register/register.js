@@ -9,7 +9,7 @@ function RegisterCtrl ($scope, $firebaseArray,$state) {
 		var ref = firebase.database().ref("users");
 		$firebaseArray(ref).$add(vm.user).then(
 			function(ref){
-				alert('user added successfully!')
+				alert('User registered successfully!')
 				$state.go('home');
 			},
 			function(error){
