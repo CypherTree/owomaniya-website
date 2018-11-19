@@ -1,31 +1,24 @@
 <div layout="row" layout-padding class="bg-dark-blue nav-dark" layout-align="space-between center">
-    <div>
-        <md-button ui-sref="home">oWomaniya</md-button>
-    </div>
-    <div class="" ng-hide="vm.token">
-				<form name="loginForm">
-						<md-input-container flex="40">
-							<label>Email Address</label>
-							<input required type="email" name="email" ng-model="vm.email"
-               minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
-							<div ng-messages="loginForm.email.$error">
-								<div ng-message="required">This is required.</div>
-							</div>
-						</md-input-container>
-		
-						<md-input-container flex="40">
-								<label>Password </label>
-								<input required name="password" ng-model="vm.password" type="password">
-								<div ng-messages="loginForm.password.$error">
-									<div ng-message="required">This is required.</div>
-								</div>
-							</md-input-container>
-					<md-input-container flex="40">
-            <md-button class="md-raised md-warn" ng-click="vm.loginWithEmailAndPwd()">LogIn</md-button>
-			</md-input-container>
-		</form>
-    </div> 
-    <div class="" ng-if="vm.displayName">
-        <avatar pic="vm.photoURL" size="cs-avatar-med"></avatar><span>{{vm.displayName}}</span>
-    </div>
+	<div class="m-l-15">
+		<img src="/assets/img/oWomaniya.png" width="150" height="30">
+	</div>
+	<div class="nav-buttons">
+		<md-nav-bar
+			md-no-ink-bar="disableInkBar"
+			md-selected-nav-item="currentNavItem"
+			nav-bar-aria-label="navigation links">
+			<md-nav-item md-nav-click="vm.goto('home')" name="home">
+				Events 
+			</md-nav-item>
+			<md-nav-item md-nav-click="vm.goto('home')" name="home">
+				Prizes 
+			</md-nav-item>
+			<md-nav-item md-nav-click="vm.goto('home')" name="home">
+				Sponsors 
+			</md-nav-item>
+			<md-nav-item md-nav-click="vm.goto('home')" name="about">
+				About US
+			</md-nav-item>
+		</md-nav-bar>
+	</div>
 </div>
