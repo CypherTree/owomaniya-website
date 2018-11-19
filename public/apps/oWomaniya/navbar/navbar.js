@@ -69,6 +69,9 @@ function NavbarCtrl ($scope, $state) {
           }
       });
   }
+  vm.goto = function (tab) {
+    $state.go(tab)
+  }
 }
 
 

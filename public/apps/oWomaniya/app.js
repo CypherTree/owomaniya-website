@@ -11,7 +11,8 @@ angular.module('oWomaniya', [
   'home',
   'firebase',
   'profile',
-  'register'
+  'register',
+  'ngMap'
 ])
 
 /**

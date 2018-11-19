@@ -1,72 +1,69 @@
-<md-content class="md-padding" layout-xs="column" layout="row" ng-controller="HomeCtrl as vm">
-	<div flex-xs flex-gt-xs="20" layout="column"></div>
-	<div flex-xs flex-gt-xs="50" layout="column">
-			<md-card md-theme="default">
-					<md-card-title>
-						<md-card-title-text>
-								<span class="md-headline"><h1>Welcome To oWomaniya!!</h1></span>
-						</md-card-title-text>
-					</md-card-title>
-					<md-divider></md-divider>
-					<md-card-content>
-							<md-list  ng-cloak>
-								<md-list-item>
-										<p>Hi, we are organizing a hackathon (oWomaniya) for women in tech, where we will create a web/mobile app or a portal to help, educate and support women. This will be open source contribution.</p>
-								</md-list-item>
-								<md-list-item>
-										<h2>Theme of hackathon is to address following issues: </h2>
-								</md-list-item>
-								<md-list-item>
-										<md-chips>
-												<md-chip>Sexual harassment</md-chip>
-												<md-chip>Pregnancy discrimination</md-chip>
-												<md-chip>Appearance</md-chip>
-												<md-chip>Work-life imbalance</md-chip>
-												<md-chip>Gender bias</md-chip>
-										</md-chips>
-								</md-list-item>
-								<md-divider></md-divider>
-								<md-list-item>
-										<h2>Who can join? If you are: </h2>
-								</md-list-item>
-								<md-list-item class="md-2-line"  layout="row">
-										<md-chips>
-											<md-chip>Ui Developer</md-chip>
-											<md-chip>Web Developer</md-chip>
-											<md-chip>Backend developer</md-chip>
-											<md-chip>Mobile developer</md-chip>
-											<md-chip>Designer</md-chip>
-											<md-chip>QA</md-chip>
-											<md-chip>Content Writer</md-chip>
-											<md-chip>Social media manager</md-chip>
-											<md-chip>Lawyer</md-chip>
-										</md-chips>
-								</md-list-item>
-								<md-divider></md-divider>
-								<md-list-item>
-										<h2>Let's connect.. </h2>
-								</md-list-item>
-								<md-list-item>
-										<md-button class="md-raised md-primary" ng-click="vm.signInGithub()">Sign Up With Github</md-button>
-										<md-button class="md-raised md-accent" ng-click="vm.signInGoogle()">Sign In With Google</md-button>
-										<md-button class="md-raised md-accent"  ui-sref="register" >Register For Hackathon </a>
-								</md-list-item>
-								<md-divider></md-divider>
-								<md-list-item>
-										<h2>People already registered for hackathon : {{vm.userList.length}}</h2>
-								</md-list-item>
-								<md-list-item >
-										<md-chips>
-												<md-chip ng-repeat ="user in vm.userList">{{user.first_name}} {{user.last_name}}</md-chip>
-											</md-chips>
-								</md-list-item>
-						</md-list>
-				</md-card-content>
-					<!-- <md-card-actions layout="row" layout-align="end center">
-					<md-button>Action 1</md-button>
-					<md-button>Action 2</md-button>
-					</md-card-actions> -->
-			</md-card>
-    </div>
-  <div flex-xs flex-gt-xs="20" layout="column"></div>
+<md-content class="home" flex="100">
+	<md-card class="no-margin">
+		<md-card-content class="no-padding">
+			<div layout="row">
+					<div class="md-card-wrapper">
+					<md-input-container class="no-padding no-margin">
+						<md-card class="no-margin">
+							<img src="/assets/img/wit.jpg">
+						</md-card>
+						<h2><pre>HACKATHON FOR WOMEN</pre></h2>
+						<h4><pre>15th December, 2018</pre></h4>
+						<a href="#" class="md-button md-accent">Register</a>
+					</md-input-container>
+				</div>
+			</div>
+		</md-card-content>
+	</md-card>
 </md-content>
+<div layout-fill layout="column" layout-align="center none">
+	<div layout="row" layout-align="center none">
+<md-content flex="80" class= "m-20 font-s-20">
+	<p class="has-text-grey">
+		Cyphertree's oWomaniya is for women in tech, where we will create a web/mobile app or a portal to help, educate and support women.
+		oWomaniya 2018 is India’s biggest Women Only Coding arena designed to identify the best women coders and tech enthusiasts across India. It saw a participation of 68500 Women techies out of which 150 women have made it to the Finale.
+		The finalists will showcase their technical prowess in the 6-hour Coding battle to be crowned the ultimate oWomaniya 2018
+	</p>
+	<p><b>Event Details</b></p>
+	<md-card flex="55" class="p-25">
+		<md-card-content>
+			<div layout="row">
+				<md-input-container flex="50">
+					<label><b>Date</b></label>
+					<p class="font-s-15 m-t-25 m-t-25">15th December, 2018</p>
+				</md-input-container>
+				<md-input-container flex="50">
+						<label><b>Event Category</b></label>
+						<p class="font-s-15 m-t-25">resource</p>
+					</md-input-container>
+			</div>
+			<div layout="row">
+				<md-input-container flex="50">
+				<label><b>Time</b></label>
+				<p class="font-s-15 m-t-25">Saturday 9:00am to 9:00pm</p>
+				</md-input-container>
+				<md-input-container flex="40">
+					<label><b>Email</b></label>
+					<p class="font-s-15 m-t-25">info@owomaniya.com</p>
+				</md-input-container>
+			</div>
+			<div layout="row">
+				<md-input-container flex="50">
+				<label><b>Phone</b></label>
+				<p class="font-s-15 m-t-25">+(91)-(020)-48618404</p>
+			</md-input-container>
+			<md-input-container class="50">
+			<label><b>Location</b></label>
+				<p class="font-s-15 m-t-25">406, Sky Max, Viman Nagar, Pune 411014, India.</p>
+				</md-input-container>
+		</div>
+			<md-input-container class="md-block">
+				<label><b>Cost</b></label>
+				<p class="font-s-15 m-t-25">$150</p>
+			</md-input-container>
+			
+	</md-card-content>
+	</md-card>
+</md-content>
+</div>
+</div>

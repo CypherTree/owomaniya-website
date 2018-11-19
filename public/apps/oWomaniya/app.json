@@ -17,7 +17,9 @@
     "firebase/firebase-auth.js",
     "firebase/firebase-database.js",
     "angularfire/dist/angularfire.js",
-    "angular-avatar/dist/angular-avatar.min.js"
+    "angular-avatar/dist/angular-avatar.min.js",
+    "bootstrap/dist/js/bootstrap.min.js",
+    "ngmap/build/scripts/ng-map.min.js"
   ],
   "components": [
     "avatar/avatar.js"

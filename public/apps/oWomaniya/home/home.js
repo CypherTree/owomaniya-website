@@ -5,8 +5,6 @@ function HomeCtrl ($firebaseArray) {
 	var vm = this;
 	var ref = firebase.database().ref("users");
 	vm.userList = $firebaseArray(ref);
-	
-
 	vm.userIsLoggedIn = function() {
 			firebase.auth().onAuthStateChanged(function(user) {
 					if (user) {
