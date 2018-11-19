@@ -70,7 +70,9 @@ function NavbarCtrl ($scope, $state) {
       });
   }
   vm.goto = function (tab) {
-    $state.go(tab)
+    if ( tab == 'about') {
+      window.open('https://cyphertree.com/about-us/', '_blank');
+    }
   }
 }
 
