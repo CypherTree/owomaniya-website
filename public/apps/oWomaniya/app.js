@@ -10,7 +10,8 @@ angular.module('oWomaniya', [
   'navbar',
   'home',
   'firebase',
-  'profile'
+  'profile',
+  'register'
 ])
 
 /**

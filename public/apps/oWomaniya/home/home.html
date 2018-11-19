@@ -49,6 +49,16 @@
 								<md-list-item>
 										<md-button class="md-raised md-primary" ng-click="vm.signInGithub()">Sign Up With Github</md-button>
 										<md-button class="md-raised md-accent" ng-click="vm.signInGoogle()">Sign In With Google</md-button>
+										<md-button class="md-raised md-accent"  ui-sref="register" >Register For Hackathon </a>
+								</md-list-item>
+								<md-divider></md-divider>
+								<md-list-item>
+										<h2>People already registered for hackathon : {{vm.userList.length}}</h2>
+								</md-list-item>
+								<md-list-item >
+										<md-chips>
+												<md-chip ng-repeat ="user in vm.userList">{{user.first_name}} {{user.last_name}}</md-chip>
+											</md-chips>
 								</md-list-item>
 						</md-list>
 				</md-card-content>

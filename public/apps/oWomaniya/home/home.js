@@ -1,8 +1,12 @@
 (function () {
     'use strict';  
-HomeCtrl.$inject = ['$scope','$state'];
-function HomeCtrl ($scope, $state) {
+HomeCtrl.$inject = ['$firebaseArray'];
+function HomeCtrl ($firebaseArray) {
 	var vm = this;
+	var ref = firebase.database().ref("users");
+	vm.userList = $firebaseArray(ref);
+	
+
 	vm.userIsLoggedIn = function() {
 			firebase.auth().onAuthStateChanged(function(user) {
 					if (user) {
@@ -43,7 +47,8 @@ function HomeCtrl ($scope, $state) {
 			// The signed-in user info.
 			var user = result.user;
 			});
-    }
+	}
+
     vm.userIsLoggedIn();
 }
 config.$inject = ['$stateProvider'];
@@ -57,8 +62,9 @@ function config($stateProvider) {
   });
 }
 
+
 angular
-    .module('home', ['firebase'])
-    .controller('HomeCtrl', HomeCtrl)
+    .module('home', ['firebase','ngMaterial'])
+	.controller('HomeCtrl', HomeCtrl)
     .config(config);
 })();

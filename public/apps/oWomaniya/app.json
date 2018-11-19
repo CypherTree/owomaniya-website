@@ -15,6 +15,7 @@
     "firebase/firebase.js",
     "firebase/firebase-app.js",
     "firebase/firebase-auth.js",
+    "firebase/firebase-database.js",
     "angularfire/dist/angularfire.js",
     "angular-avatar/dist/angular-avatar.min.js"
   ],
@@ -25,7 +26,8 @@
     "app.js",
     "home/home.js",
     "profile/profile.js",
-    "navbar/navbar.js"
+    "navbar/navbar.js",
+    "register/register.js"
   ],
   "config": {
     "local": {
