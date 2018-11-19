@@ -101,7 +101,7 @@ gulp.task('concat', ['bump', 'templates'], function () {
   var appLocale = JSON.stringify(allLocales[pkg.name]) + ';\n';
   return gulp.src(files)
     .pipe(sourcemaps.init())
-    .pipe(concat('app.js', {newLine: ';'}))
+    .pipe(concat('app.js', {newLine: '\n'}))
     .pipe(header('window.locales = ' + appLocale))
     .pipe(header(banner, {pkg: pkg}))
     .pipe(sourcemaps.write('./'))
