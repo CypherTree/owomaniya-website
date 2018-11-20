@@ -15,8 +15,11 @@ function RegisterCtrl ($scope, $firebaseArray,$state) {
 			function(error){
 				console.log(error);
 			}
-			)
-}
+		)
+	}
+	vm.goBack = function () {
+		$state.go('home')
+	}
 }
 config.$inject = ['$stateProvider'];
 

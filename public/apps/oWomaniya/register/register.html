@@ -1,17 +1,17 @@
-<md-content layout-padding flex="90">
+ <md-content layout-padding flex="100">
 		<md-card>
 			<md-card-content>
 				<h3>Register yourself for Hackathon.</h3>
 				<form name="registerForm">
-					<div layout="row">
-						<md-input-container flex="50">
+					<div layout-gt-md="row">
+						<md-input-container flex-gt-md="50">
 							<label>First name</label>
 							<input required  name="firstName" ng-model="vm.user.first_name">
 							<div ng-messages="registerForm.firstName.$error">
 									<div ng-message="required">This is required.</div>
 							</div>
 						</md-input-container>
-						<md-input-container flex="50">
+						<md-input-container flex-gt-md="50">
 							<label>Last Name</label>
 							<input required name="lastName" ng-model="vm.user.last_name">
 							<div ng-messages="registerForm.lastName.$error">
@@ -19,8 +19,8 @@
 							</div>
 						</md-input-container>
 					</div>
-					<div layout="row">
-						<md-input-container flex="50">
+					<div layout-gt-md="row">
+						<md-input-container flex-gt-md="50">
 							<label>Email Address</label>
 							<input required type="email" name="email" ng-model="vm.user.email"/>
 
@@ -31,35 +31,37 @@
 							</div>
 						</md-input-container>
 
-						<md-input-container flex="50">
+						<md-input-container flex-gt-md="50">
 							<label>Contact Number</label>
 							<input type="number"  name="phone" ng-model="vm.user.phone" />
 						</md-input-container>
 					</div>
-					<div layout="row">
-							<md-input-container flex="40">
+					<div layout-gt-md="row">
+							<md-input-container flex-gt-md="50">
 									<label>Company Name</label>
 									<input type="text"  name="company" ng-model="vm.user.company_name" />
 								</md-input-container>
-							<md-input-container flex="40">
+							<md-input-container flex-gt-md="50">
 								<label>Location</label>
 								<input type="text"  name="city" ng-model="vm.user.city"/>
 							</md-input-container>
-							<md-input-container flex="40">
-									<label> Technology you worked on: (eg. web developer, lawyer)</label>
-									<input type="text"  name="company" ng-model="vm.user.technology" />
-								</md-input-container>
 						</div>
-						<div layout="row">
-							<md-input-container flex="50">
+						<div layout-gt-md="row">
+								<md-input-container flex-gt-md="100">
+										<label> Technology you worked on: (eg. web developer, lawyer)</label>
+										<input type="text"  name="company" ng-model="vm.user.technology" />
+									</md-input-container>
+						</div>
+						<div layout-gt-md="row">
+							<md-input-container flex-gt-md="50">
 								<md-radio-group ng-model="vm.user.gender">
 									<md-radio-button value="female" class="md-primary">Female</md-radio-button>
 									<md-radio-button value="male"> Male </md-radio-button>
 								</md-radio-group>
 							</md-input-container>
-							<md-input-container flex="50">
+							<md-input-container flex-gt-md="50">
 								<md-switch class="md-primary" name="isJoining" ng-model="vm.user.is_joining" required>
-									Are you Interested for this hackathon ?
+									Are you Interested for this event?
 								</md-switch>
 								<div ng-messages="registerForm.isJoining.$error">
 									<div ng-message="required">
@@ -79,11 +81,10 @@
 						</div>
 					</md-input-container>
 					<div>
-						<md-button type="submit" ng-click="vm.register()" class="md-raised md-primary md-button md-ink-ripple" ng-disabled="!vm.tos && registerForm.tos.$error">Submit</md-button>
-						<md-button type="submit" ui-sref="home" class="md-raised">cancel</md-button>
+						<md-button type="submit" ng-click="vm.register()" class="md-raised md-primary md-ink-ripple" ng-disabled="!vm.tos && registerForm.tos.$error">Submit</md-button>
+						<md-button ng-click="vm.goBack()" class="md-raised">cancel</md-button>
 					</div>
 				</form>
 			</md-card-content>
 		</md-card>
   </md-content>
-	
