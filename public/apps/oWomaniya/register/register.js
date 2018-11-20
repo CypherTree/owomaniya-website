@@ -10,7 +10,19 @@ function RegisterCtrl ($scope, $firebaseArray,$state) {
 		$firebaseArray(ref).$add(vm.user).then(
 			function(ref){
 				alert('User registered successfully!')
-				$state.go('home');
+				firebase.auth().createUserWithEmailAndPassword(vm.user.email, "password@123$!").catch(function(error) { 	
+					firebase.auth().currentUser.sendEmailVerification().then(function(res) {
+						// Email Verification sent!
+						console.log(res)
+						if(res.email){
+							alert('email verification link has been sent.')
+						}else if(error && error.msg){
+							alert('Oops!! Something went wrong.')
+						}
+						$state.go("home")
+					  });				
+					})	
+				
 			},
 			function(error){
 				console.log(error);
