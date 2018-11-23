@@ -1,4 +1,4 @@
- <md-content layout-padding flex="100">
+ <md-content layout-padding  layout-wrap flex="100">
 		<md-card>
 			<md-card-content>
 				<h3>Register yourself for Hackathon.</h3>
@@ -81,7 +81,7 @@
 						</div>
 					</md-input-container>
 					<div>
-						<md-button class="md-raised md-primary md-large-button p-0" ng-disabled="!vm.tos && !registerForm.$valid" type="submit">
+						<md-button class="md-raised md-primary md-large-button p-0" ng-disabled="registerForm.$invalid" type="submit"> 
 							<md-progress-linear ng-if="vm.isLoading" md-mode="indeterminate" class="md-accent"></md-progress-linear>
 								 Register
 						</md-button>
