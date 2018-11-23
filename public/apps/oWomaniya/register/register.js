@@ -11,7 +11,7 @@ function RegisterCtrl ($scope, $firebaseArray,$state) {
 		var ref = firebase.database().ref("users");
 		$firebaseArray(ref).$add(vm.user).then(
 			function(ref){
-				alert('you are registered for the event, see you there')
+				alert('you are registered for the event, see you there.')
 				firebase.auth().createUserWithEmailAndPassword(vm.user.email, "password@123$!").then(function(){
 					firebase.auth().currentUser.sendEmailVerification().then(function(res) {
 						// Email Verification sent!
