@@ -58,7 +58,7 @@ require('./stubs')(app);
 
 // Start listening
 app.listen(port, function () {
-  console.log('Art Boutique Client served on port '.concat(port));
+  console.log('oWomaniya Client served on port '.concat(port));
 });
 
 /**
