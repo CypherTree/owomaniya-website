@@ -5,7 +5,9 @@ function RegisterCtrl ($scope, $firebaseArray,$state) {
 	var vm = this;
 	vm.user = {};
 	vm.user.is_joining = true;
+	vm.isLoading = false;
 	vm.register = function (event) {
+		vm.isLoading = true;
 		var ref = firebase.database().ref("users");
 		$firebaseArray(ref).$add(vm.user).then(
 			function(ref){
@@ -14,6 +16,7 @@ function RegisterCtrl ($scope, $firebaseArray,$state) {
 					firebase.auth().currentUser.sendEmailVerification().then(function(res) {
 						// Email Verification sent!
 						alert('email verification link has been sent to your account.')
+						vm.isLoading = false;
 						$state.go("home")
 					  });			
 				}) 	
