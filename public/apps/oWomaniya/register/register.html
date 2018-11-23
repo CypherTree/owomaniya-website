@@ -56,7 +56,7 @@
 							<md-input-container flex-gt-md="50">
 								<md-radio-group ng-model="vm.user.gender">
 									<md-radio-button value="female" class="md-primary">Female</md-radio-button>
-									<md-radio-button value="male"> Male </md-radio-button>
+									<md-radio-button value="male" class="md-primary"> Male </md-radio-button>
 								</md-radio-group>
 							</md-input-container>
 							<md-input-container flex-gt-md="50">
@@ -71,7 +71,7 @@
 							</md-input-container>
 					</div>	
 					<md-input-container class="md-block">
-						<md-checkbox name="tos" ng-model="vm.tos" required>
+						<md-checkbox name="tos" ng-model="vm.tos" required class="md-primary">
 							I understand all the terms and condition for this hackathon.
 						</md-checkbox>
 						<div ng-messages="registerForm.tos.$error" multiple md-auto-hide="false">
@@ -81,9 +81,9 @@
 						</div>
 					</md-input-container>
 					<div>
-						<md-button class="md-raised md-primary md-large-button p-0" ng-disabled="registerForm.$invalid" type="submit"> 
-							<md-progress-linear ng-if="vm.isLoading" md-mode="indeterminate" class="md-accent"></md-progress-linear>
-								 Register
+						<md-button class="md-raised md-large-button p-0 has-black" ng-disabled="registerForm.$invalid" type="submit"> 
+							<md-progress-linear ng-if="vm.isLoading" md-mode="indeterminate" class="md-warn"></md-progress-linear>
+								Register
 						</md-button>
 						<md-button ng-click="vm.goBack()" class=" md-raised md-large-button">cancel</md-button>
 					</div>
