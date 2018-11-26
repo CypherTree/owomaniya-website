@@ -1,6 +1,14 @@
   body{
+    overflow-x: hidden;
+    font-size: 15px;
+    line-height: 25px;
+    font-weight: 400;
     font-family: "Poppins", sans-serif;
-    color: #2f2f2f;
+    color: #8d95a6;
+    overflow-x: hidden !important;
+  }
+  #myCarousel {
+    background-color: #2f2f2f40;
   }
   .no-margin{
     margin: 0px !important;
@@ -34,15 +42,14 @@
     padding:25px;
   }
   .caption-block {
-    bottom: 46% !important;
-    text-align:center;
-    background-color: #2f2f2f40;
+    text-align:left;
     padding-top: 30px;
     padding-bottom: 30px;
     color: white;
+    left: 150px;
+    top: 230px;
   }
   .mob-caption-block {
-    background-color: #2f2f2f40;
     text-align: center;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -51,13 +58,15 @@
   .register-btn{
       background: #2b2726;
       color: white;
-      width: 170px;
+      width: 190px;
       color: #fff;
-      height: 60px;
+      height: 75px;
       font-size: 18px;
       border: none;
       border-radius: 0px;
       font-weight: 700;
+      line-height: 74px;
+      font-weight: 600;
       transition: all 0.3s ease-in-out;
       cursor: pointer;
     }
@@ -67,27 +76,53 @@
     .font-s-70{
       font-size:70px !important;
     }
-    h2, h4 {
+    h2, h5 {
       color: white;
     }
     .m-22{
       margin: 22px !important;
     }
-    .m-l-r-12 {
-      margin-left:12%;
-      margin-right:12%;
+    .m-l-r-8 {
+      margin-left:8%;
+      margin-right:8%;
     }
-    .m-t-2 {
-      margin-top: 2%;
+    .m-t-5 {
+      margin-top: 5%;
     }
     .m-b-2{
       margin-bottom: 2%;
     }
+    .m-b-5{
+      margin-bottom: 5%;
+    }
+    .m-b-8{
+      margin-bottom: 8%;
+    }
     .card {
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     }
-    iframe{
-      height: 303px;
-      width: 100%;
-      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    }
+    
+  iframe {
+    height: 425px;
+    width: 370px;
+  }
+  .carousel .item {
+    height: 750px;
+  }
+  
+  .item img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-height: 750px;
+  }
+  .event_details_wrapper{
+    padding: 0px!important;
+  }
+   @media only screen and (max-width: 767px){
+   .event_details_wrapper .event_intro .post_content .blog_post_content p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
