@@ -1,7 +1,7 @@
 
  <div class="form-full-box wow fadeInRight" >
-		<md-button class="md-fab pull-right close-btn md-mini" aria-label="close" ng-click="vm.goBack()">
-				<i class="fa fa-times" aria-hidden="true"></i>
+		<md-button class="md-fab pull-right close-btn md-mini d-md-block d-none" aria-label="close" ng-click="vm.goBack()" >
+			<i class="fa fa-times" aria-hidden="true"></i>
 		</md-button>
 		<div class="form_title m-b-5">
 			<span class="black m-b-5 title-text">Register Yourself For Hackathon </span>
@@ -58,25 +58,25 @@
 			</div>
 			<div layout-gt-md="row">
 				<md-input-container flex-gt-md="50">
-					<md-radio-group ng-model="vm.user.gender">
+					<md-radio-group ng-model="vm.user.gender" class="font-s-18 black">
 						<md-radio-button value="female" class="md-accent">Female</md-radio-button>
 						<md-radio-button value="male" class="md-accent"> Male </md-radio-button>
 					</md-radio-group>
 				</md-input-container>
 				<md-input-container flex-gt-md="50">
 					<md-switch class="md-accent" name="isJoining" ng-model="vm.user.is_joining" required>
-						Are you Interested for this event?
+						<span class="font-s-18 black">Are you Interested for this event?</span>
 					</md-switch>
 					<div ng-messages="registerForm.isJoining.$error">
 						<div ng-message="required">
-							You must enable this options before you can proceed.
+							<span class="font-s-18 black">You must enable this options before you can proceed.</span>
 						</div>
 					</div>
 					</md-input-container>
 			</div>	
 			<md-input-container class="md-block">
 				<md-checkbox name="tos" ng-model="vm.tos" required class="md-accent">
-					I understand all the terms and condition for this hackathon.
+					<span class="font-s-18 black">I understand all the terms and condition for this hackathon.</span>
 				</md-checkbox>
 				<div ng-messages="registerForm.tos.$error" multiple md-auto-hide="false">
 					<div ng-message="required">
