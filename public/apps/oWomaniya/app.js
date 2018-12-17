@@ -12,6 +12,7 @@ angular.module('oWomaniya', [
   'firebase',
   'profile',
   'register',
+  'users',
   'ngMap'
 ])
 
