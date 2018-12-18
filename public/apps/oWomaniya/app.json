@@ -24,7 +24,7 @@
   ],
   "components": [
     "avatar/avatar.js",
-    "cs-upload/cs-upload.js"
+    "img-upload/img-upload.js"
   ],
   "files": [
     "app.js",

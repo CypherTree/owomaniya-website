@@ -46,7 +46,7 @@ $stateProvider.state('register', {
 }
 
 angular
-    .module('register', ['firebase','ngMaterial','cs-upload'])
+    .module('register', ['firebase','ngMaterial','img-upload'])
 	.controller('RegisterCtrl', RegisterCtrl)
     .config(config);
 })();

@@ -9,8 +9,8 @@ var navbar = {
 };
 
 
-NavbarCtrl.$inject = ['$scope','$state'];
-function NavbarCtrl ($scope, $state) {
+NavbarCtrl.$inject = ['$scope','$location'];
+function NavbarCtrl ($scope, $location) {
     var vm = this;
     vm.loginWithEmailAndPwd = function () {
       firebase.auth().signInWithEmailAndPassword(vm.email, vm.password).catch(function(error) {
@@ -25,7 +25,9 @@ function NavbarCtrl ($scope, $state) {
         }
       });
     },
-
+    vm.setTabSelected = function(route) {
+      return route === $location.path();
+    };
     vm.signIn = function () {
         var provider = new firebase.auth.GithubAuthProvider();
         provider.addScope('repo');

@@ -6,18 +6,18 @@
 		<div class="form_title">
 			<span class="black title-text">Register Yourself For Hackathon </span>
 		</div>
-		<form name="registerForm" novalidate ng-submit="registerForm.$valid && vm.register()">
+		<form name="registerForm" novalidate ng-submit="registerForm.$valid && vm.register()" class="registerForm">
 			<div layout-gt-md="row">
 				<md-input-container flex-gt-md="10">
 				
 					<div class="cs-avt-change-banner p-0 m-b-0 bg-white">
 						<img class="cs-avatar cs-avatar-100 no-rounded logo-edit border-radius-top-5" ng-src="{{ vm.user.$$logo || vm.user.logo || 'assets/img/change-photo.png' }}">
 						<div class="cs-banner-btns m-t-0 border-radius-bot-5"> 
-							<cs-upload ng-model="vm.user.logo" ng-viewmodel="vm.user.$$logo" uploading="uploading" image="true">
+							<img-upload ng-model="vm.user.logo" ng-viewmodel="vm.user.$$logo" uploading="uploading" image="true">
 							<a href="" class="cs-change-avt" ng-if="!vm.user.logo">
 								<span class="fa fa-camera"></span>
 							</a>
-							</cs-upload>
+							</img-upload>
 							<a href="" class="cs-remove-avt" ng-click="vm.user.logo = null; vm.user.$$logo = null"
 							ng-disabled="uploading" ng-if="vm.user.logo">
 							<span class="fa fa-trash"></span>
