@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var CsUpload = {
+  var ImgUpload = {
     bindings    : {
       ngModel  : '=?',
       ngViewmodel: '=?',
@@ -12,14 +12,14 @@
       extraParams: '<?'
     },
     transclude  : true,
-    templateUrl : '/cs-upload/cs-upload.html',
-    controller  : CsUploadCtrl,
+    templateUrl : '/img-upload/img-upload.html',
+    controller  : ImgUploadCtrl,
     controllerAs: 'vm'
   };
 
 
-  CsUploadCtrl.$inject = ['$element','$timeout','$firebaseStorage'];
-  function CsUploadCtrl($element, $timeout, $firebaseStorage) {
+  ImgUploadCtrl.$inject = ['$element','$timeout','$firebaseStorage'];
+  function ImgUploadCtrl($element, $timeout, $firebaseStorage) {
     let vm = this;
     vm.imageFormat = 'image/*';
     vm.file = vm.file || {}
@@ -56,6 +56,6 @@
   }                                                                                                                                                                                                                                                                                                                                                                                                      
 
   angular
-    .module('cs-upload', ['ngFileUpload'])
-    .component('csUpload', CsUpload);
+    .module('img-upload', ['ngFileUpload'])
+    .component('imgUpload', ImgUpload);
 }());
