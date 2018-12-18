@@ -8,14 +8,31 @@
 		</div>
 		<form name="registerForm" novalidate ng-submit="registerForm.$valid && vm.register()">
 			<div layout-gt-md="row">
-				<md-input-container flex-gt-md="50">
+				<md-input-container flex-gt-md="10">
+				
+					<div class="cs-avt-change-banner p-0 m-b-0 bg-white">
+						<img class="cs-avatar cs-avatar-100 no-rounded logo-edit border-radius-top-5" ng-src="{{ vm.user.$$logo || vm.user.logo || 'assets/img/change-photo.png' }}">
+						<div class="cs-banner-btns m-t-0 border-radius-bot-5"> 
+							<cs-upload ng-model="vm.user.logo" ng-viewmodel="vm.user.$$logo" uploading="uploading" image="true">
+							<a href="" class="cs-change-avt" ng-if="!vm.user.logo">
+								<span class="fa fa-camera"></span>
+							</a>
+							</cs-upload>
+							<a href="" class="cs-remove-avt" ng-click="vm.user.logo = null; vm.user.$$logo = null"
+							ng-disabled="uploading" ng-if="vm.user.logo">
+							<span class="fa fa-trash"></span>
+							</a>
+						</div>
+					</div>
+				</md-input-container>
+				<md-input-container flex-gt-md="55">
 					<label>First name</label>
 					<input required  name="firstName" ng-model="vm.user.first_name" class="custom-input">
 					<div ng-messages="registerForm.firstName.$error && registerForm.firstName.$dirty">
 							<div ng-message="required">This is required.</div>
 					</div>
 				</md-input-container>
-				<md-input-container flex-gt-md="50">
+				<md-input-container flex-gt-md="55">
 					<label>Last Name</label>
 					<input required name="lastName" ng-model="vm.user.last_name" class="custom-input">
 					<div ng-messages="registerForm.lastName.$error">
@@ -53,7 +70,7 @@
 			<div layout-gt-md="row">
 					<md-input-container flex-gt-md="100">
 							<label> Technology you worked on: (eg. web developer, lawyer)</label>
-							<input type="text"  name="company" ng-model="vm.user.technology" />
+							<input type="text"  name="company" ng-model="vm.user.technology" class="custom-input"/>
 						</md-input-container>
 			</div>
 			<div layout-gt-md="row">

@@ -16,8 +16,6 @@
     profileCtrl.$inject = ['$state'];
     function profileCtrl($state) {
       var vm = this;
-     
-  
     }
   
   

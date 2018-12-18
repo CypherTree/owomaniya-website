@@ -1,0 +1,20 @@
+<span class="cs-upload m-b-30">
+   
+	<input
+    type="file"
+    class="hide"
+    name="file"
+    id="file"
+    ngf-select
+    ng-model="vm.file"
+    accept="{{ vm.imageFormat }}"
+    ngf-max-size="10MB"
+    ng-change="vm.uploadFile(file)"><br/>
+
+	<span ng-click="vm.fileUploadClick()" ng-show="!vm.uploading">
+        <span ng-transclude ng-show="!vm.ngModel"></span>
+        <span ng-transclude ng-show="vm.ngModel">{{ vm.file.name }}</span>
+	</span> 
+   <md-progress-linear ng-if="vm.uploading" md-mode="indeterminate" class="md-accent"></md-progress-linear> 
+</span>
+

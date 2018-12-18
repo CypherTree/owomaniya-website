@@ -19,10 +19,12 @@
     "angularfire/dist/angularfire.js",
     "bootstrap/dist/js/bootstrap.min.js",
     "ngmap/build/scripts/ng-map.min.js",
-    "angular-avatar/dist/angular-avatar.min.js"
+    "angular-avatar/dist/angular-avatar.min.js",
+    "ng-file-upload/ng-file-upload-all.min.js"
   ],
   "components": [
-    "avatar/avatar.js"
+    "avatar/avatar.js",
+    "cs-upload/cs-upload.js"
   ],
   "files": [
     "app.js",
