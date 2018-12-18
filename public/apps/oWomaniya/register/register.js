@@ -3,6 +3,7 @@
 RegisterCtrl.$inject = ['$scope','$firebaseArray','$state'];
 function RegisterCtrl ($scope, $firebaseArray,$state) {
 	var vm = this;
+
 	vm.user = {};
 	vm.user.is_joining = true;
 	vm.isLoading = false;
@@ -15,6 +16,7 @@ function RegisterCtrl ($scope, $firebaseArray,$state) {
 				firebase.auth().createUserWithEmailAndPassword(vm.user.email, "password@123$!").then(function(){
 					firebase.auth().currentUser.sendEmailVerification().then(function(res) {
 						// Email Verification sent!
+					
 						alert('email verification link has been sent to your account.')
 						vm.isLoading = false;
 						$state.go("home")
@@ -29,6 +31,8 @@ function RegisterCtrl ($scope, $firebaseArray,$state) {
 	vm.goBack = function () {
 		$state.go('home')
 	}
+
+	
 }
 config.$inject = ['$stateProvider'];
 
@@ -42,7 +46,7 @@ $stateProvider.state('register', {
 }
 
 angular
-    .module('register', ['firebase','ngMaterial'])
+    .module('register', ['firebase','ngMaterial','cs-upload'])
 	.controller('RegisterCtrl', RegisterCtrl)
     .config(config);
 })();
