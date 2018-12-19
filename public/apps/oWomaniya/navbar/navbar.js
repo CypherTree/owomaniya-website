@@ -9,8 +9,8 @@ var navbar = {
 };
 
 
-NavbarCtrl.$inject = ['$scope','$location'];
-function NavbarCtrl ($scope, $location) {
+NavbarCtrl.$inject = ['$state','$location'];
+function NavbarCtrl ($state, $location) {
     var vm = this;
     vm.loginWithEmailAndPwd = function () {
       firebase.auth().signInWithEmailAndPassword(vm.email, vm.password).catch(function(error) {
@@ -26,6 +26,9 @@ function NavbarCtrl ($scope, $location) {
       });
     },
     vm.setTabSelected = function(route) {
+      if( $location.path() === '/') {
+        $location.path('/home');
+      }
       return route === $location.path();
     };
     vm.signIn = function () {
