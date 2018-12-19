@@ -10,40 +10,41 @@ function RegisterCtrl ($scope, $firebaseArray,$state,$mdToast) {
 	vm.register = function (event) {
 		vm.isLoading = true;
 		var ref = firebase.database().ref("users");
-		$firebaseArray(ref).$add(vm.user).then(
-			function(ref){
-				alert('you are registered for the event, see you there.')
-				firebase.auth().createUserWithEmailAndPassword(vm.user.email, "password@123$!").then(function(){
-
-					firebase.auth().currentUser.sendEmailVerification().then(function(res) {
-						// Email Verification sent!
+		
+		firebase.auth().createUserWithEmailAndPassword(vm.user.email, "password@123$!").then(function(){
+			alert('you are registered for the event, see you there.')
+			firebase.auth().currentUser.sendEmailVerification().then(function(res) {
+				// Email Verification sent!
+				$firebaseArray(ref).$add(vm.user).then(
+					function(ref){
 						$mdToast.show(
 							$mdToast.simple()
-							  .textContent('email verification link has been sent to your account.')
-							  .position('top' )
-							  .hideDelay(3000)
-						  );
-						
-						vm.isLoading = false;
-						$state.go("home")
-					  });			
-				}).catch(function(error) {
-					var errorCode = error.code;
-					var errorMessage = error.message;
-					$mdToast.show(
-						$mdToast.simple()
-						  .textContent(errorMessage)
-						  .position('bottom right')
-						  .hideDelay(3000)
-						  .highlightAction(true)
-      					 .highlightClass('text-danger')
-					);
-				  });
-			},
-			function(error){
-				console.log(error);
-			}
-		)
+								.textContent('email verification link has been sent to your account.')
+								.position('bottom right' )
+								.hideDelay(3000)
+							);
+							vm.isLoading = false;
+							$state.go("home")
+					},
+					function(error){
+						console.log(error);
+					})
+				});			
+			}).catch(function(error) {
+				var errorMessage = error.message;
+				vm.isLoading = false;
+				$mdToast.show(
+					$mdToast.simple()
+						.textContent(errorMessage)
+						.position('bottom right')
+						.hideDelay(3000)
+						.highlightAction(true)
+						.highlightClass('text-danger')
+				);
+			});
+		
+		
+		
 	}
 	vm.goBack = function () {
 		$state.go('home')

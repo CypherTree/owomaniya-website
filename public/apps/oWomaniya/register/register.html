@@ -102,7 +102,7 @@
 				</div>
 			</md-input-container>
 			<div class="center">
-				<md-button class="md-raised md-large-button p-0 has-black" ng-disabled="registerForm.$invalid" type="submit"> 
+				<md-button class="md-raised md-large-button p-0 has-black" ng-disabled="registerForm.$invalid && vm.isLoading" type="submit"> 
 					<md-progress-linear ng-if="vm.isLoading" md-mode="indeterminate" class="md-accent"></md-progress-linear>
 						Register
 				</md-button>
