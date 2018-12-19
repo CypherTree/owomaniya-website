@@ -1,7 +1,7 @@
 (function () {
     'use strict';  
-RegisterCtrl.$inject = ['$scope','$firebaseArray','$state'];
-function RegisterCtrl ($scope, $firebaseArray,$state) {
+RegisterCtrl.$inject = ['$scope','$firebaseArray','$state','$mdToast'];
+function RegisterCtrl ($scope, $firebaseArray,$state,$mdToast) {
 	var vm = this;
 
 	vm.user = {};
@@ -14,14 +14,31 @@ function RegisterCtrl ($scope, $firebaseArray,$state) {
 			function(ref){
 				alert('you are registered for the event, see you there.')
 				firebase.auth().createUserWithEmailAndPassword(vm.user.email, "password@123$!").then(function(){
+
 					firebase.auth().currentUser.sendEmailVerification().then(function(res) {
 						// Email Verification sent!
-					
-						alert('email verification link has been sent to your account.')
+						$mdToast.show(
+							$mdToast.simple()
+							  .textContent('email verification link has been sent to your account.')
+							  .position('top' )
+							  .hideDelay(3000)
+						  );
+						
 						vm.isLoading = false;
 						$state.go("home")
 					  });			
-				}) 	
+				}).catch(function(error) {
+					var errorCode = error.code;
+					var errorMessage = error.message;
+					$mdToast.show(
+						$mdToast.simple()
+						  .textContent(errorMessage)
+						  .position('bottom right')
+						  .hideDelay(3000)
+						  .highlightAction(true)
+      					 .highlightClass('text-danger')
+					);
+				  });
 			},
 			function(error){
 				console.log(error);

@@ -7,7 +7,7 @@
 					 <div class="frontside">
 						 <div class="card">
 							 <div class="card-body text-center">
-								 <p><img class=" img-fluid" ng-src="{{user.logo}}" alt="card image"></p>
+								 <p><img class=" img-fluid" ng-src="{{user.logo || '/assets/img/women.jpg'}}" alt="oWomaniya"></p>
 								 <h4 class="card-title Primary - pink">{{user.first_name | uppercase}} {{user.last_name | uppercase }}</h4>
 								 <p class="card-text">{{user.technology}}<span ng-if="user.technology && user.company_name">,</span> {{user.company_name }}</p>
 								 <p class="card-text text-truncate"><span ng-if="user.email"><span class="fa fa-envelope"></span></span> {{user.email }}</p>
