@@ -10,7 +10,6 @@ angular.module('oWomaniya', [
   'navbar',
   'home',
   'firebase',
-  'profile',
   'register',
   'users',
   'ngMap'

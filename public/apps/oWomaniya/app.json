@@ -30,7 +30,6 @@
   "files": [
     "app.js",
     "home/home.js",
-    "profile/profile.js",
     "navbar/navbar.js",
     "register/register.js",
     "user-list/user-list.js"

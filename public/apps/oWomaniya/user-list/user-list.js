@@ -8,7 +8,7 @@ function UserListCtrl ($scope, $firebaseArray,$state) {
 	vm.isLoading = false;
 	var ref = firebase.database().ref("users");
 	vm.userList = $firebaseArray(ref);
-
+	
 	vm.goBack = function () {
 		$state.go('home')
 	}

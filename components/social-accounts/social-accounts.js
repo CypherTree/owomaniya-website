@@ -29,8 +29,8 @@
 
   var socialLinks = {
     bindings: {
-      'items': '=',
-      'watchItems': '=?'
+      'urls': '=',
+      'watchUrls': '=?'
     },
     controllerAs: 'vm',
     controller: socialLinksCtrl,
@@ -156,12 +156,14 @@
 
   socialLinksCtrl.$inject = ['$scope', '$filter'];
   function socialLinksCtrl($scope, $filter) {
-    var vm = this;
-    console.log(vm.items)
-    console.log(vm.watchItems)
+    let vm = this;
+    
+    console.log(vm)
+    console.log(vm.urls)
     vm.setLinks = function() {
       vm.links = [];
-      angular.forEach(vm.items, function(value) {
+ 
+      angular.forEach(vm.urls, function(value) {
         var linkRes = '';
         var fontIcn = {show: false};
 
@@ -176,7 +178,6 @@
             fontIcn.icn = 'fa-slideshare';
           }
         }
-
         vm.links.push({
           url: linkRes,
           type: value.type,
@@ -185,9 +186,9 @@
       });
     };
 
-    if (vm.watchItems) {
+    if (vm.watchUrls) {
       $scope.$watch(function() {
-        return vm.items;
+        return vm.urls;
       }, function() {
         vm.setLinks();
       }, true);
