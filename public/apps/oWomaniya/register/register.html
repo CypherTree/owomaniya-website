@@ -9,7 +9,6 @@
 		<form name="registerForm" novalidate ng-submit="registerForm.$valid && vm.register()" class="registerForm">
 			<div layout-gt-md="row">
 				<md-input-container flex-gt-md="10">
-				
 					<div class="cs-avt-change-banner p-0 m-b-0 bg-white">
 						<img class="cs-avatar cs-avatar-100 no-rounded logo-edit border-radius-top-5" ng-src="{{ vm.user.$$logo || vm.user.logo || 'assets/img/change-photo.png' }}">
 						<div class="cs-banner-btns m-t-0 border-radius-bot-5"> 
@@ -90,7 +89,11 @@
 						</div>
 					</div>
 					</md-input-container>
-			</div>	
+
+			</div>
+			<md-label class="color-black">Social accounts</md-label>
+			<social-fields items="vm.user.links"></social-fields>
+			 
 			<md-input-container class="md-block">
 				<md-checkbox name="tos" ng-model="vm.tos" required class="md-accent">
 					<span class="font-s-18 black">I understand all the terms and condition for this hackathon.</span>

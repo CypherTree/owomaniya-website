@@ -1,114 +1,25 @@
 
  <div class="form-bg wow fadeInRight" >
 	 <div class="row">
-		 <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="user in vm.userList">
+		 <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="user in vm.userList">
 			 <div class="image-flip2" ontouchstart="this.classList.toggle('hover');">
 				 <div class="mainflip">
 					 <div class="frontside">
 						 <div class="card">
-							 <div class="card-body text-center">
-								 <p><img class=" img-fluid" ng-src="{{user.logo || '/assets/img/women.jpg'}}" alt="oWomaniya"></p>
-								 <h4 class="card-title Primary - pink">{{user.first_name | uppercase}} {{user.last_name | uppercase }}</h4>
+							 <div class="card-body text-center social-items">
+								 <p><img class=" img-fluid" ng-src="{{user.logo || '/assets/img/avatar.png'}}" alt="oWomaniya"></p>
+								 <h5 class="card-title Primary - pink">{{user.first_name | uppercase}} {{user.last_name | uppercase }}</h5>
 								 <p class="card-text">{{user.technology}}<span ng-if="user.technology && user.company_name">,</span> {{user.company_name }}</p>
-								 <p class="card-text text-truncate"><span ng-if="user.email"><span class="fa fa-envelope"></span></span> {{user.email }}</p>
+								 <p class="card-text text-truncate card-text-15"><span ng-if="user.email"><span class="fa fa-envelope"></span></span> {{user.email }}</p>
+								 <!-- <a href="https://www.facebook.com/cyphertree/"><i class="fab fa-facebook-f fb-icon"></i></a>
+								<a href="https://twitter.com/cyphertree"><i class="fab fa-twitter twitt-icon"></i></a>
+								<a href="https://www.linkedin.com/company/cyphertree-technologies-pvt-ltd"><i class="fab fa-linkedin-in link-icon"></i></a>
+								<a href="https://www.instagram.com/owomaniya.io/"><i class="fab fa-instagram ins-icon"></i></a> -->
+								<social-links items="user.links" watch-items="true"></social-links>
 							 </div>
 						 </div>
 					 </div>
 				 </div>
 			 </div>
-		 </div>
-		 
-		 
-		 <!-- <div class="col-xs-12 col-sm-6 col-md-4">
-			 <div class="image-flip2" ontouchstart="this.classList.toggle('hover');">
-				 <div class="mainflip">
-					 <div class="frontside">
-						 <div class="card">
-							 <div class="card-body text-center">
-								 <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_02.png" alt="card image"></p>
-								 <h4 class="card-title">Sunlimetech</h4>
-								 <p class="card-text">This is basic card with image on top, title, description and button.</p>
-								 <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-							 </div>
-						 </div>
-					 </div>
-				 </div>
-			 </div>
-		 </div>
-		 
-		 
-		 <div class="col-xs-12 col-sm-6 col-md-4">
-			 <div class="image-flip2" ontouchstart="this.classList.toggle('hover');">
-				 <div class="mainflip">
-					 <div class="frontside">
-						 <div class="card">
-							 <div class="card-body text-center">
-								 <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_03.png" alt="card image"></p>
-								 <h4 class="card-title">Sunlimetech</h4>
-								 <p class="card-text">This is basic card with image on top, title, description and button.</p>
-								 <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-							 </div>
-						 </div>
-					 </div>
-				 </div>
-			 </div>
-		 </div>
-		 
-		 
-		 <div class="col-xs-12 col-sm-6 col-md-4">
-			 <div class="image-flip2" ontouchstart="this.classList.toggle('hover');">
-				 <div class="mainflip">
-					 <div class="frontside">
-						 <div class="card">
-							 <div class="card-body text-center">
-								 <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_04.jpg" alt="card image"></p>
-								 <h4 class="card-title">Sunlimetech</h4>
-								 <p class="card-text">This is basic card with image on top, title, description and button.</p>
-								 <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-							 </div>
-						 </div>
-					 </div>
-				 </div>
-			 </div>
-		 </div>
-		 
-		 
-		 <div class="col-xs-12 col-sm-6 col-md-4">
-			 <div class="image-flip2" ontouchstart="this.classList.toggle('hover');">
-				 <div class="mainflip">
-					 <div class="frontside">
-						 <div class="card">
-							 <div class="card-body text-center">
-								 <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_05.png" alt="card image"></p>
-								 <h4 class="card-title">Sunlimetech</h4>
-								 <p class="card-text">This is basic card with image on top, title, description and button.</p>
-								 <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-							 </div>
-						 </div>
-					 </div>
-				 </div>
-			 </div>
-		 </div>
-		 
-		 
-		 <div class="col-xs-12 col-sm-6 col-md-4">
-			 <div class="image-flip2" ontouchstart="this.classList.toggle('hover');">
-				 <div class="mainflip">
-					 <div class="frontside">
-						 <div class="card">
-							 <div class="card-body text-center">
-								 <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg" alt="card image"></p>
-								 <h4 class="card-title">Sunlimetech</h4>
-								 <p class="card-text">This is basic card with image on top, title, description and button.</p>
-								 <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-							 </div>
-						 </div>
-					 </div>
-					 
-				 </div>
-			 </div>
-		 </div> -->
-		 
-
 	 </div>
 	</div>

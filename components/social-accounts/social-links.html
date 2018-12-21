@@ -1,0 +1,13 @@
+<div class="cs-social-links">
+  <span class="text-left p-r-5" ng-repeat="link in vm.links">
+    {{link}}
+    <a ng-href="{{link.url}}" target="_blank">
+      <img ng-if="!link.fontIcn.show"
+        ng-src="{{link.type | iconFileName}}"
+        class="cs-avatar cs-avatar-small"
+        alt="{{link.type}}" title="{{link.type}}">
+
+      <span ng-if="link.fontIcn.show" class="link-icn fa {{link.fontIcn.icn}}"></span>
+    </a>
+  </span>
+</div>

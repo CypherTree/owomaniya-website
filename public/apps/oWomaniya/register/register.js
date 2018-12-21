@@ -1,22 +1,24 @@
 (function () {
     'use strict';  
-RegisterCtrl.$inject = ['$scope','$firebaseArray','$state','$mdToast'];
-function RegisterCtrl ($scope, $firebaseArray,$state,$mdToast) {
+RegisterCtrl.$inject = ['$firebase','$firebaseArray','$state','$mdToast'];
+function RegisterCtrl ($firebase, $firebaseArray,$state,$mdToast) {
 	var vm = this;
 
-	vm.user = {};
+	vm.user ={};
 	vm.user.is_joining = true;
+	vm.user.links =[];
 	vm.isLoading = false;
 	vm.register = function (event) {
 		vm.isLoading = true;
 		var ref = firebase.database().ref("users");
-		
 		firebase.auth().createUserWithEmailAndPassword(vm.user.email, "password@123$!").then(function(){
 			alert('you are registered for the event, see you there.')
+			
 			firebase.auth().currentUser.sendEmailVerification().then(function(res) {
 				// Email Verification sent!
 				$firebaseArray(ref).$add(vm.user).then(
 					function(ref){
+						// $firebaseArray(ref.child("links")).$add(vm.links);
 						$mdToast.show(
 							$mdToast.simple()
 								.textContent('email verification link has been sent to your account.')
@@ -64,7 +66,7 @@ $stateProvider.state('register', {
 }
 
 angular
-    .module('register', ['firebase','ngMaterial','img-upload'])
+    .module('register', ['firebase','ngMaterial','img-upload','social-accounts'])
 	.controller('RegisterCtrl', RegisterCtrl)
     .config(config);
 })();

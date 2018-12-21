@@ -1,0 +1,21 @@
+<div class="cs-social-fields">
+  <social-item
+    ng-hide="item._destroy"
+    item="item"
+    item-name="links"
+    option-name="type"
+    input-name="link"
+    index-count="$index"
+    ng-repeat="item in vm.items"
+    removable=true
+    on-remove="vm.removeLink($index, item)">
+  </social-item>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <a class="blue" role="button" href="" ng-click="vm.items.push({})">
+      {{ vm.addButtonValue ? addButtonValue : '+Add Social Network'}}
+    </a>
+  </div>
+</div>
