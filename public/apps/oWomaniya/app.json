@@ -25,6 +25,7 @@
   "components": [
     "avatar/avatar.js",
     "img-upload/img-upload.js",
+    "ow-footer/ow-footer.js",
     "social-accounts/social-accounts.js"
   ],
   "files": [

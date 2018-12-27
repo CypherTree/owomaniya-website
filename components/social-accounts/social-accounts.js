@@ -29,8 +29,7 @@
 
   var socialLinks = {
     bindings: {
-      'urls': '=',
-      'watchUrls': '=?'
+      'urls': '='
     },
     controllerAs: 'vm',
     controller: socialLinksCtrl,
@@ -41,7 +40,6 @@
   function socialFieldsCtrl() {
     var vm = this;
     vm.removeLink = removeLink;
-    console.log(vm.items)
     function removeLink(index, params) {
       if (params.id) {
         params._destroy = true;
@@ -154,12 +152,14 @@
     });
   }
 
-  socialLinksCtrl.$inject = ['$scope', '$filter'];
-  function socialLinksCtrl($scope, $filter) {
+  socialLinksCtrl.$inject = ['$filter'];
+  function socialLinksCtrl( $filter) {
     let vm = this;
+ 
     
-    console.log(vm)
-    console.log(vm.urls)
+    vm.$onInit=function(){
+      vm.setLinks();
+    }
     vm.setLinks = function() {
       vm.links = [];
  
@@ -185,17 +185,6 @@
         });
       });
     };
-
-    if (vm.watchUrls) {
-      $scope.$watch(function() {
-        return vm.urls;
-      }, function() {
-        vm.setLinks();
-      }, true);
-    }
-    else {
-      vm.setLinks();
-    }
   }
 
   function IconFileName() {

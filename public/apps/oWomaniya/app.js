@@ -9,6 +9,7 @@ angular.module('oWomaniya', [
   'ngMaterial',
   'navbar',
   'home',
+  'ow-footer',
   'firebase',
   'register',
   'users',

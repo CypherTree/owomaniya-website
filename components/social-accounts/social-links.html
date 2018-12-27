@@ -1,11 +1,21 @@
-<div class="cs-social-links">
-  <span class="text-left p-r-5" ng-repeat="link in vm.links">
-    <a ng-href="{{link.url}}" target="_blank">
+<div class="social-icon-listing">
+<div class="social_wraper">
+  <ul class="social-items d-flex list-unstyled">
+    <li  ng-repeat="link in vm.links"><a ng-href="{{link.url}}" target="_blank">
       <img ng-if="!link.fontIcn.show"
         ng-src="{{link.type | iconFileName}}"
         class="cs-avatar cs-avatar-small"
         alt="{{link.type}}" title="{{link.type}}">
       <span ng-if="link.fontIcn.show" class="link-icn fa {{link.fontIcn.icn}}"></span>
-    </a>
-  </span>
+    </a></li>
+  </ul>
 </div>
+</div>
+<!-- <div class="social_wraper">
+  <ul class="social-items d-flex list-unstyled">
+      <li><a href="https://www.facebook.com/cyphertree/"><i class="fab fa-facebook-f fb-icon"></i></a></li>
+      <li><a href="https://twitter.com/cyphertree"><i class="fab fa-twitter twitt-icon"></i></a></li>
+      <li><a href="https://www.linkedin.com/company/cyphertree-technologies-pvt-ltd"><i class="fab fa-linkedin-in link-icon"></i></a></li>
+      <li><a href="https://www.instagram.com/owomaniya.io/"><i class="fab fa-instagram ins-icon"></i></a></li>
+  </ul>
+</div>   -->
