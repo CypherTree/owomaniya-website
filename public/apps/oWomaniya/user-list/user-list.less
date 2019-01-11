@@ -83,72 +83,6 @@ section .section-title {
   margin-bottom: 50px;
   text-transform: uppercase;
 }
-
-#team .card {
-  border: none;
-  background: #ffffff;
-}
-
-.image-flip:hover .backside,
-.image-flip.hover .backside {
-  -webkit-transform: rotateY(0deg);
-  -moz-transform: rotateY(0deg);
-  -o-transform: rotateY(0deg);
-  -ms-transform: rotateY(0deg);
-  transform: rotateY(0deg);
-  border-radius: .25rem;
-}
-
-.image-flip:hover .frontside,
-.image-flip.hover .frontside {
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-}
-
-.mainflip {
-  -webkit-transition: 1s;
-  -webkit-transform-style: preserve-3d;
-  -ms-transition: 1s;
-  -moz-transition: 1s;
-  -moz-transform: perspective(1000px);
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  transition: 1s;
-  transform-style: preserve-3d;
-  position: relative;
-}
-
-.frontside {
-  position: relative;
-  -webkit-transform: rotateY(0deg);
-  -ms-transform: rotateY(0deg);
-  z-index: 2;
-  margin-bottom: 30px;
-}
-
-
-.frontside .card,
-.backside .card {
-  min-height: 312px;
-}
-
-.backside .card a {
-  font-size: 18px;
-  color: #FF4081 !important;
-}
-
-.frontside .card .card-title,
-.backside .card .card-title {
-  color: #FF4081 !important;
-}
-
-.frontside .card .card-body img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-}
 .l-h-22{
   line-height: 22px;
 }
@@ -168,4 +102,172 @@ section .section-title {
   background: transition;
   color: #FF4081;
   transition: all 0.3s ease-in-out;
+}
+.m-t-50{
+  margin-top: 50px;
+}
+ .teachers-area {
+  padding: 20px 0;
+}
+ .teachers-area .teachers-wapper-01 {
+  margin-bottom: 50px;
+}
+ .teachers-area .teachers-wapper-01:last-child {
+  margin-bottom: 0;
+}
+ .teachers-area .teachers-wapper-01 .teacher-body {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.13);
+  transition: all 0.3s ease-in-out;
+}
+ .teachers-area .teachers-wapper-01 .teacher-body:hover {
+  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease-in-out;
+}
+ .teachers-area .teachers-wapper-01 .teacher-body .img-height {
+  width: 100%;
+}
+.teachers-area .teachers-wapper-01 .teacher-body .image-box {
+  height:250px; 
+  overflow:hidden;
+}
+
+ .teachers-area .teachers-wapper-01 .teacher-body .teachars-info {
+  text-align: center;
+  padding: 25px 20px 12px;
+}
+ .teachers-area .teachers-wapper-01 .teacher-body .teachars-info h3 {
+  padding: 0;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+ .teachers-area .teachers-wapper-01 .teacher-body .teachars-info span {
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  color: #727272;
+}
+ .teachers-area .teachers-wapper-01 .teacher-body .teachars-info ul {
+  margin-top: 20px;
+}
+ .teachers-area .teachers-wapper-01 .teacher-body .teachars-info ul li {
+  margin: 0 5px;
+  display: inline-block;
+}
+ .teachers-area .teachers-wapper-01 .teacher-body .teachars-info ul li .teacher-icon {
+  background: #f9f9f9;
+  border-radius: 100%;
+  color: #a7a7a7;
+  height: 30px;
+  padding: 7px;
+  width: 30px;
+  transition: all 0.3s ease-in-out;
+}
+ .teachers-area .teachers-wapper-01 .teacher-body .teachars-info ul li .teacher-icon:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.13);
+  transition: all 0.3s ease-in-out;
+  background: #fec722;
+  color: #ffffff;
+}
+ .teachers-area .teachers-wapper-02 {
+  margin-bottom: 50px;
+}
+ .teachers-area .teachers-wapper-02:last-child {
+  margin-bottom: 0;
+}
+ .teachers-area .teachers-wapper-02 figure {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.13);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  width: 100%;
+}
+ .teachers-area .teachers-wapper-02 figure:hover {
+  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease-in-out;
+}
+ .teachers-area .teachers-wapper-02 figure:hover .teacher-img-02:before {
+  height: 100%;
+  visibility: visible;
+  opacity: 1;
+}
+
+ .teachers-area .teachers-wapper-02 figure:hover figcaption {
+  bottom: 50%;
+  visibility: visible;
+  opacity: 1;
+}
+ .teachers-area .teachers-wapper-02 figure .teacher-img-02 {
+  position: relative;
+  height: 290px;
+}
+ .teachers-area .teachers-wapper-02 figure .teacher-img-02:before {
+  background: rgba(17, 17, 17, 0.6);
+  content: "";
+  left: 0;
+  position: absolute;
+  top: 0;
+  height: 0;
+  width: 100%;
+  transition: all 0.3s ease 0s;
+  visibility: hidden;
+  opacity: 0;
+}
+ .teachers-area .teachers-wapper-02 figure .teacher-img-02 img {
+  width: 100%;
+  height: 100%;
+}
+ .teachers-area .teachers-wapper-02 figure .teachers-name {
+  padding: 25px 15px;
+}
+ .teachers-area .teachers-wapper-02 figure .teachers-name h3 {
+  padding-bottom: 5px;
+}
+ .teachers-area .teachers-wapper-02 figure .teachers-name h3 a {
+  padding: 0;
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333333;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+ .teachers-area .teachers-wapper-02 figure .teachers-name span {
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  color: #727272;
+}
+ .teachers-area .teachers-wapper-02 figure figcaption {
+  text-align: center;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+ .teachers-area .teachers-wapper-02 figure figcaption ul {
+  margin: 10px auto;
+  text-align: center;
+}
+ .teachers-area .teachers-wapper-02 figure figcaption ul li {
+  display: inline-flex;
+  margin: 0px 2px;
+}
+ .teachers-area .teachers-wapper-02 figure figcaption ul li a {
+  background: #f9f9f9;
+  border-radius: 100%;
+  color: #a7a7a7;
+  display: block;
+  font-size: 17px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  transition: all 0.4s ease 0s;
+  width: 35px;
+}
+ .teachers-area .teachers-wapper-02 figure figcaption ul li a:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.13);
+  transition: all 0.3s ease-in-out;
+  background: #fec722;
+  color: #ffffff;
 }

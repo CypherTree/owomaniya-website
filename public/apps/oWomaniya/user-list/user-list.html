@@ -1,24 +1,21 @@
 
- <div class="form-bg wow fadeInRight" >
-	<div class="row">
-		<div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="user in vm.userList">
-			<div class="image-flip2" ontouchstart="this.classList.toggle('hover');">
-				<div class="mainflip">
-					<div class="frontside">
-						<div class="card">
-							<div class="card-body text-center social-items">
-								<p><img class=" img-fluid" ng-src="{{user.logo || '/assets/img/avatar.png'}}" alt="oWomaniya"></p>
-								<h5 class="card-title Primary - pink">{{user.first_name}} {{user.last_name }}</h5>
-								<p class="card-text font-s-15 l-h-22">{{user.technology}}<span ng-if="user.technology && user.company_name">,</span> {{user.company_name }}</p>
-								<p class="card-text text-truncate card-text-13"><span ng-if="user.email"><span class="fa fa-envelope"></span></span> {{user.email }}</p>
-								<div ng-if="user.links && user.links.length >0">
-									<social-links urls="user.links"></social-links>
-								</div>
-							</div>
+<section class="teachers-area">
+	<div class="container">
+		<div class="row teachers-wapper-01">
+			<div class="col-sm-6 col-md-3 teacher-single m-t-50" ng-repeat="user in vm.userList">
+				<div class="teacher-body">
+					<div class="image-box">
+					<img ng-src="{{user.logo || '/assets/img/Untitled design.png'}}" alt="" class="img-responsive img-height">
+				</div>
+					<div class="teachars-info">
+						<h3>{{user.first_name}} {{user.last_name}}</h3>
+						<span>{{user.technology}}<span ng-if="user.technology && user.company_name">,</span> {{user.company_name }}</span>
+						<div ng-if="user.links && user.links.length >0">
+							<social-links urls="user.links"></social-links>
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>										
+		</div>								
 		</div>
-	</div>
-</div>
+</section>
