@@ -67,10 +67,18 @@
 				</md-input-container>
 			</div>
 			<div layout-gt-md="row">
-					<md-input-container flex-gt-md="100">
-							<label> Technology you worked on: (eg. web developer, lawyer)</label>
-							<input type="text"  name="company" ng-model="vm.user.technology" class="custom-input"/>
-						</md-input-container>
+				<md-input-container flex-gt-md="50">
+					<label> Technology you worked on: (eg. web developer, lawyer)</label>
+					<input type="text"  name="company" ng-model="vm.user.technology" class="custom-input"/>
+				</md-input-container>
+				<md-input-container flex-gt-md="50">
+					<label class="font-s-18 black"> Where will you join the hackathon? </label>
+					<md-select ng-model="vm.user.host">
+						<md-option ng-repeat="($index, host) in vm.host" ng-value="host" class="font-s-18 black">
+							{{host}}
+						</md-option>
+					</md-select>
+				</md-input-container>
 			</div>
 			<div layout-gt-md="row">
 				<md-input-container flex-gt-md="50">

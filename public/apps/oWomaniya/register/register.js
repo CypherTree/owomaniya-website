@@ -8,6 +8,7 @@ function RegisterCtrl ($firebase, $firebaseArray,$state,$mdToast) {
 	vm.user.is_joining = true;
 	vm.user.links =[];
 	vm.isLoading = false;
+	vm.host = ["Cyphertree Technologies Pvt Ltd"];
 	vm.register = function (event) {
 		vm.isLoading = true;
 		var ref = firebase.database().ref("users");
