@@ -13,7 +13,10 @@ angular.module('oWomaniya', [
   'firebase',
   'register',
   'users',
-  'ngMap'
+  'ngMap',
+  'hosts',
+  'host-detail',
+  'create-host'
 ])
 
 /**

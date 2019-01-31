@@ -3,6 +3,10 @@
     "users": {
         ".read": true,
         ".write": true
-    }
+    },
+    "hosts": {
+      ".read": true,
+      ".write": true
+  }
   }
 }

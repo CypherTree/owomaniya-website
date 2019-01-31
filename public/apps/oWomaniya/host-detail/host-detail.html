@@ -1,0 +1,45 @@
+<section class="event_details_wrapper">
+	<div class="container">  
+		<div class="row">
+			<div class="col-sm-12 col-md-6 col-lg-12">
+				<div class="location_bottom_wrapper">
+					<div class="col-md-8 col-sm-12 col-xs-12">
+						<div class="event_details">
+							<div class="details_title">
+								<h3>Host Detail</h3>
+							</div>
+							<div class="event_location_info">
+								<ul class="list-unstyled">
+									<li><p>Date</p><span>16th March, 2019</span></li>                        
+									<li><p>Time</p><span>Sat 9:00am to Sun 9:00pm (24 hrs) </span></li>
+									<li><p>Perks</p><span>Lunch and Dinner will be provided.</span></li>                        
+									<li><p>Event resource</p><span>Hackathon For Women</span></li>  
+									<li><p>Email</p><span>contact@cyphertree.com</span></li>                                              
+								</ul>                    
+								<ul class="list-unstyled">
+									<li><p class="hall_location">Location</p></li>                        
+									<li><p>{{vm.selectedHost.company_name}}</p><span>{{vm.selectedHost.address}}</span></li>
+									<li><p>Phone</p><span>{{vm.selectedHost.phone}}</span></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-xs-12 col-sm-12" style="margin-top:7%">
+						<h3>Google Map</h3>
+						<div id="map" style="height:75%;margin-top:11%;"></div>	
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 has-text-grey font-s-17">
+				<div class="jumbotron">
+					<h3 class="m-l-r-8"> About {{vm.selectedHost.company_name}} </h3>					
+					<p class="panel-body text-justify m-l-r-8 m-t-5">						
+						{{vm.selectedHost.about}}
+					</p>
+				</div>
+			</div>
+		</div>
+	</div> 
+</section>

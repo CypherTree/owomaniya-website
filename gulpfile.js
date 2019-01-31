@@ -414,7 +414,7 @@ function release(name, env) {
             url = url + (index > 0 ? '&' + param.key + '=':param.key + '=');
 
             if (param.value) { url = url + param.value; }
-            else if (param.config) { url = url + pkg.config[env][param.config]; }
+            else if (param.config) { url = url + pkg.config[param.config]; }
           });
         }
       }

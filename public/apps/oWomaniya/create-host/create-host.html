@@ -1,0 +1,100 @@
+
+
+			  <md-content>
+				<div class="form-full-box wow fadeInRight" >
+						<md-button class="md-fab pull-right close-btn md-mini d-md-block d-none" aria-label="close" ng-click="vm.goBack()" >
+							<i class="fa fa-times" aria-hidden="true"></i>
+						</md-button>
+						<div class="form_title">
+							<span class="black title-text">Host an Event</span>
+						</div>
+						<form name="hostForm" novalidate ng-submit="hostForm.$valid && vm.createHost()" class="hostForm">
+							<div layout-gt-md="row">
+								<md-input-container flex-gt-md="10">
+									<div class="cs-avt-change-banner p-0 m-b-0 bg-white">
+										<img class="cs-avatar cs-avatar-100 no-rounded logo-edit border-radius-top-5" ng-src="{{ vm.host.$$logo || vm.host.logo || 'assets/img/change-photo.png' }}">
+										<div class="cs-banner-btns m-t-0 border-radius-bot-5"> 
+											<img-upload ng-model="vm.host.logo" ng-viewmodel="vm.host.$$logo" uploading="uploading" image="true">
+											<a href="" class="cs-change-avt" ng-if="!vm.host.logo">
+												<span class="fa fa-camera"></span>
+											</a>
+											</img-upload>
+											<a href="" class="cs-remove-avt" ng-click="vm.host.logo = null; vm.host.$$logo = null"
+											ng-disabled="uploading" ng-if="vm.host.logo">
+											<span class="fa fa-trash"></span>
+											</a>
+										</div>
+									</div>
+								</md-input-container>
+								<md-input-container flex-gt-md="90">
+									<label>Company Name</label>
+									<input required  name="companyName" ng-model="vm.host.company_name" class="custom-input">
+									<div ng-messages="hostForm.firstName.$error && hostForm.firstName.$dirty">
+											<div ng-message="required">This is required.</div>
+									</div>
+								</md-input-container>
+							</div>
+							<div layout-gt-md="row">
+									<md-input-container flex-gt-md="100">
+											<label>About Company</label>
+											<input required type="text" name="about" ng-model="vm.host.about" class="custom-input"/>
+										</md-input-container>
+							</div>
+							<div layout-gt-md="row">
+								<md-input-container flex-gt-md="50">
+									<label>Address</label>
+									<input required type="text" name="address" ng-model="vm.host.address" class="custom-input"/>
+				
+									<div ng-messages="hostForm.address.$error">
+										<div ng-message="required">							
+											<div ng-message="required">This is required.</div>
+										</div>
+									</div>
+								</md-input-container>
+				
+								<md-input-container flex-gt-md="50">
+									<label>Contact Number</label>
+									<input type="number"  name="phone" ng-model="vm.host.phone" class="custom-input"/>
+								</md-input-container>
+							</div>
+							<div layout-gt-md="row">
+								<md-input-container flex-gt-md="100">
+									<label>Location</label>
+									<input type="text" ng-model="vm.host.location"
+										uib-typeahead="places.description as places.description for places in vm.searchPlaces($viewValue)"
+										typeahead-loading="vm.$locPromise"
+										typeahead-on-select="vm.onLocationSelect($item, $model)"
+										typeahead-wait-ms="500"
+										class="custom-input"
+									>									
+								</md-input-container>
+							</div>
+							<div layout-gt-md="row">
+								<md-input-container flex-gt-md="100">
+									<label> Number of people that can be accommodated</label>
+									<input type="number"  name="canAccomodate" ng-model="vm.host.can_accomodate" class="custom-input"/>
+								</md-input-container>
+							</div>
+							<md-label class="color-black">Social accounts</md-label>
+							<social-fields items="vm.host.links"></social-fields>
+							 
+							<md-input-container class="md-block">
+								<md-checkbox name="tos" ng-model="vm.tos" required class="md-accent">
+									<span class="font-s-18 black">I understand all the terms and condition for hosting an event.</span>
+								</md-checkbox>
+								<div ng-messages="hostForm.tos.$error" multiple md-auto-hide="false">
+									<div ng-message="required">
+										You must accept the terms of service before you can proceed.
+									</div>
+								</div>
+							</md-input-container>
+							<div class="center">
+								<md-button class="md-raised md-large-button p-0 has-black" ng-disabled="hostForm.$invalid && vm.isLoading" type="submit"> 
+									<md-progress-linear ng-if="vm.isLoading" md-mode="indeterminate" class="md-accent"></md-progress-linear>
+										Register Host
+								</md-button>
+								<md-button ng-click="vm.goBack()" class=" md-raised md-large-button">cancel</md-button>
+							</div>
+						</form>
+					</div>
+			  </md-content>

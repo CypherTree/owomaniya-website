@@ -13,11 +13,11 @@
           <span ng-if="vm.item.type && (vm.item.type == 'Reddit' || vm.item.type == 'Slideshare')" class="m-t-10 fa" ng-class="{'fa-reddit': vm.item.type == 'Reddit', 'fa-slideshare': vm.item.type == 'Slideshare'}"></span>
         
           <input type="text" name="{{vm.inputName}}"
-          ng-model="vm.item.link"
-          class="custom-input m-l-r-20"
-          placeholder="Enter account profile URL"
-          pattern="(https?:\/\/)?[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:/~+#-]*[\w@?^=%&amp;/~+#-])?"
-          required>
+            ng-model="vm.item.link"
+            class="custom-input m-l-r-20"
+            placeholder="Enter account profile URL"
+            pattern="(https?:\/\/)?[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:/~+#-]*[\w@?^=%&amp;/~+#-])?"
+            required>
         <!-- </div>
       </div> -->
       <a  href ng-if="vm.removable" ng-click="vm.removeItem()" ><i class="far fa-times-circle fa-2x"></i></a>
