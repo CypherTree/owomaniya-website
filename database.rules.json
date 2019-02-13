@@ -1,12 +1,12 @@
 {
   "rules": {
     "users": {
-        ".read": true,
-        ".write": true
+      ".read": true,
+      ".write": true
     },
     "hosts": {
       ".read": true,
       ".write": true
-  }
+    }
   }
 }
