@@ -390,7 +390,7 @@ function release(name, env) {
   path = './public/apps/' + name;
   pkg = require(path + '/app.json');
   dist = './public/dist/' + pkg.name;
-  env = env;
+  env = 'production';
   var cdns = [];
 
   files = pkg.dependencies.map(function (dep) {
@@ -414,7 +414,7 @@ function release(name, env) {
             url = url + (index > 0 ? '&' + param.key + '=':param.key + '=');
 
             if (param.value) { url = url + param.value; }
-            else if (param.config) { url = url + pkg.config[param.config]; }
+            else if (param.config) { url = url + pkg.config[env][param.config]; }
           });
         }
       }
@@ -431,7 +431,7 @@ function release(name, env) {
   ].join('');
 
   var cdnIncludes = cdns.join('');
-
+  
   var config = '<script>' + 'window.CONFIG =  window.CONFIG || ' + JSON.stringify(pkg.config[env]) + ';</script>';
   gulp.src([__dirname + '/public/apps/' + pkg.name + '/production.html'])
     .pipe(rename('index.html'))
@@ -507,7 +507,7 @@ function upload(env, app) {
   var s3 = aws.create(creds);
 
   // Set max-age depending on env
-  var maxAge = require('./config/max-age.json')[process.env.NODE_ENV || 'dev'];
+  var maxAge = require('./config/max-age.json')[process.env.NODE_ENV || 'production'];
 
   // custom headers
   var headers = {

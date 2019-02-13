@@ -77,6 +77,8 @@ function NavbarCtrl ($state, $location) {
   vm.goto = function (tab) {
     if ( tab == 'about') {
       window.open('https://cyphertree.com/about-us/', '_blank');
+    } else if(tab == 'meetup'){
+      window.open("https://www.meetup.com/oWomaniya/events/258183210/?_xtd=gqFyqTE4NTM0Nzc2OKFwo3dlYg&from=ref", '_blank');
     }
   }
 }

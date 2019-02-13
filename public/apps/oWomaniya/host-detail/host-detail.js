@@ -4,8 +4,7 @@
  function HostDetailCtrl ( $firebaseArray,$state,$stateParams ) {
 	var vm = this;
 	vm.host = {};
-	vm.host.lat = -33.866651;
-	vm.host.long = 151.195827;
+
 	vm.isLoading = true;
 	var ref = firebase.database().ref("hosts");
 	vm.hostList = $firebaseArray(ref);
@@ -24,16 +23,17 @@
 	}	
 
 	 vm.initialize= function(host) {
-	  var loc = { lat: parseInt(host.lat), lng: parseInt(host.long) };
-	  var map = new google.maps.Map(document.getElementById('map'), {
+	  var loc = { lat: parseFloat(vm.selectedHost.lat), lng: parseFloat(vm.selectedHost.long) };
+		console.log(loc);
+		var map = new google.maps.Map(document.getElementById('map'), {
 		zoom: 12,
 		center: loc
 	  });
 
 	  // This event listener calls addMarker() when the map is clicked.
-	  google.maps.event.addListener(map, 'click', function(event) {
-		addMarker(event.latLng, map);
-	  });
+	  // google.maps.event.addListener(map, 'click', function(event) {
+		// addMarker(event.latLng, map);
+	  // });
 
 	  // Add a marker at the center of the map.
 	  addMarker(loc, map);
