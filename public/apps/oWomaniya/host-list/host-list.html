@@ -1,0 +1,22 @@
+
+<section class="teachers-area">
+	<div class="container">
+		<div class="row teachers-wapper-01">
+			<div class="col-sm-6 col-md-3 teacher-single m-t-50" ng-repeat="host in vm.hostList">
+				<a ui-sref="host-detail({ id: host.$id })">
+				<div class="teacher-body">
+					<div class="image-box">
+					<img ng-src="{{host.logo || '/assets/img/Untitled design.png'}}" alt="" class="img-responsive img-height">
+				</div>
+					<div class="teachars-info">
+						<h3>{{host.company_name}}</h3>
+						<div ng-if="host.links && host.links.length >0">
+							<social-links urls="host.links"></social-links>
+						</div>
+					</div>
+				</div>
+			</a>
+			</div>										
+		</div>								
+		</div>
+</section>

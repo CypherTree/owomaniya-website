@@ -1,112 +1,130 @@
 
- <div class="form-full-box wow fadeInRight" >
-		<md-button class="md-fab pull-right close-btn md-mini d-md-block d-none" aria-label="close" ng-click="vm.goBack()" >
-			<i class="fa fa-times" aria-hidden="true"></i>
-		</md-button>
-		<div class="form_title">
-			<span class="black title-text">Register Yourself For Hackathon </span>
-		</div>
-		<form name="registerForm" novalidate ng-submit="registerForm.$valid && vm.register()" class="registerForm">
-			<div layout-gt-md="row">
-				<md-input-container flex-gt-md="10">
+	<!-- <md-tabs md-dynamic-height md-border-bottom> 
+			 <md-tab label="Register For Hackathon"> -->
+			  <md-content class="">
+				<div class="form-full-box wow fadeInRight" >
+						<md-button class="md-fab pull-right close-btn md-mini d-md-block d-none" aria-label="close" ng-click="vm.goBack()" >
+							<i class="fa fa-times" aria-hidden="true"></i>
+						</md-button>
+						<div class="form_title">
+							<span class="black title-text">Register Yourself For Hackathon </span>
+						</div>
+						<form name="registerForm" novalidate ng-submit="registerForm.$valid && vm.register()" class="hostForm">
+							<div layout-gt-md="row">
+								<md-input-container flex-gt-md="10">
+									<div class="cs-avt-change-banner p-0 m-b-0 bg-white">
+										<img class="cs-avatar cs-avatar-100 no-rounded logo-edit border-radius-top-5" ng-src="{{ vm.user.$$logo || vm.user.logo || 'assets/img/change-photo.png' }}">
+										<div class="cs-banner-btns m-t-0 border-radius-bot-5"> 
+											<img-upload ng-model="vm.user.logo" ng-viewmodel="vm.user.$$logo" uploading="uploading" image="true">
+											<a href="" class="cs-change-avt" ng-if="!vm.user.logo">
+												<span class="fa fa-camera"></span>
+											</a>
+											</img-upload>
+											<a href="" class="cs-remove-avt" ng-click="vm.user.logo = null; vm.user.$$logo = null"
+											ng-disabled="uploading" ng-if="vm.user.logo">
+											<span class="fa fa-trash"></span>
+											</a>
+										</div>
+									</div>
+								</md-input-container>
+								<md-input-container flex-gt-md="55">
+									<label>First name</label>
+									<input required  name="firstName" ng-model="vm.user.first_name" class="custom-input">
+									<div ng-messages="registerForm.firstName.$error && registerForm.firstName.$dirty">
+											<div ng-message="required">This is required.</div>
+									</div>
+								</md-input-container>
+								<md-input-container flex-gt-md="55">
+									<label>Last Name</label>
+									<input required name="lastName" ng-model="vm.user.last_name" class="custom-input">
+									<div ng-messages="registerForm.lastName.$error">
+										<div ng-message="required">This is required.</div>
+									</div>
+								</md-input-container>
+							</div>
+							<div layout-gt-md="row">
+								<md-input-container flex-gt-md="50">
+									<label>Email Address</label>
+									<input required type="email" name="email" ng-model="vm.user.email" class="custom-input"/>
 				
-					<div class="cs-avt-change-banner p-0 m-b-0 bg-white">
-						<img class="cs-avatar cs-avatar-100 no-rounded logo-edit border-radius-top-5" ng-src="{{ vm.user.$$logo || vm.user.logo || 'assets/img/change-photo.png' }}">
-						<div class="cs-banner-btns m-t-0 border-radius-bot-5"> 
-							<img-upload ng-model="vm.user.logo" ng-viewmodel="vm.user.$$logo" uploading="uploading" image="true">
-							<a href="" class="cs-change-avt" ng-if="!vm.user.logo">
-								<span class="fa fa-camera"></span>
-							</a>
-							</img-upload>
-							<a href="" class="cs-remove-avt" ng-click="vm.user.logo = null; vm.user.$$logo = null"
-							ng-disabled="uploading" ng-if="vm.user.logo">
-							<span class="fa fa-trash"></span>
-							</a>
+									<div ng-messages="registerForm.email.$error">
+										<div ng-message="required">
+												<div ng-message="required">This is required.</div>
+										</div>
+									</div>
+								</md-input-container>
+				
+								<md-input-container flex-gt-md="50">
+									<label>Contact Number</label>
+									<input type="number"  name="phone" ng-model="vm.user.phone" class="custom-input"/>
+								</md-input-container>
+							</div>
+							<div layout-gt-md="row">
+								<md-input-container flex-gt-md="50">
+										<label>Company Name</label>
+										<input type="text"  name="company" ng-model="vm.user.company_name" class="custom-input"/>
+									</md-input-container>
+								<md-input-container flex-gt-md="50">
+									<label>Location</label>
+									<input type="text"  name="city" ng-model="vm.user.city" class="custom-input"/>
+								</md-input-container>
+							</div>
+							<div layout-gt-md="row">
+								<md-input-container flex-gt-md="50">
+									<label> Technology you worked on: (eg. web developer, lawyer)</label>
+									<input type="text"  name="company" ng-model="vm.user.technology" class="custom-input"/>
+								</md-input-container>
+								<md-input-container flex-gt-md="50">
+									<label class="font-s-18 black"> Where will you join the hackathon? </label>
+									<md-select ng-model="vm.user.client">
+										<md-option ng-repeat="($index, host) in vm.clients" ng-value="host" class="font-s-18 black">
+											{{host}}
+										</md-option>
+									</md-select>
+								</md-input-container>
+							</div>
+							<div layout-gt-md="row">
+								<md-input-container flex-gt-md="50">
+									<md-radio-group ng-model="vm.user.gender" class="font-s-18 black">
+										<md-radio-button value="female" class="md-accent">Female</md-radio-button>
+										<md-radio-button value="male" class="md-accent"> Male </md-radio-button>
+									</md-radio-group>
+								</md-input-container>
+								<md-input-container flex-gt-md="50">
+									<md-switch class="md-accent" name="isJoining" ng-model="vm.user.is_joining" required>
+										<span class="font-s-18 black">Are you Interested for this event?</span>
+									</md-switch>
+									<div ng-messages="registerForm.isJoining.$error">
+										<div ng-message="required">
+											<span class="font-s-18 black">You must enable this options before you can proceed.</span>
+										</div>
+									</div>
+									</md-input-container>
+				
+							</div>
+							<md-label class="color-black">Social accounts</md-label>
+							<social-fields items="vm.user.links"></social-fields>
+							 
+							<md-input-container class="md-block">
+								<md-checkbox name="tos" ng-model="vm.tos" required class="md-accent">
+									<span class="font-s-18 black">I understand all the terms and condition for this hackathon.</span>
+								</md-checkbox>
+								<div ng-messages="registerForm.tos.$error" multiple md-auto-hide="false">
+									<div ng-message="required">
+										You must accept the terms of service before you can proceed.
+									</div>
+								</div>
+							</md-input-container>
+							<div class="center">
+								<md-button class="md-raised md-large-button p-0 has-black" ng-disabled="registerForm.$invalid && vm.isLoading" type="submit"> 
+									<md-progress-linear ng-if="vm.isLoading" md-mode="indeterminate" class="md-accent"></md-progress-linear>
+										Register
+								</md-button>
+								<md-button ng-click="vm.goBack()" class=" md-raised md-large-button">cancel</md-button>
+							</div>
+						</form>
 						</div>
-					</div>
-				</md-input-container>
-				<md-input-container flex-gt-md="55">
-					<label>First name</label>
-					<input required  name="firstName" ng-model="vm.user.first_name" class="custom-input">
-					<div ng-messages="registerForm.firstName.$error && registerForm.firstName.$dirty">
-							<div ng-message="required">This is required.</div>
-					</div>
-				</md-input-container>
-				<md-input-container flex-gt-md="55">
-					<label>Last Name</label>
-					<input required name="lastName" ng-model="vm.user.last_name" class="custom-input">
-					<div ng-messages="registerForm.lastName.$error">
-						<div ng-message="required">This is required.</div>
-					</div>
-				</md-input-container>
-			</div>
-			<div layout-gt-md="row">
-				<md-input-container flex-gt-md="50">
-					<label>Email Address</label>
-					<input required type="email" name="email" ng-model="vm.user.email" class="custom-input"/>
-
-					<div ng-messages="registerForm.email.$error">
-						<div ng-message="required">
-								<div ng-message="required">This is required.</div>
-						</div>
-					</div>
-				</md-input-container>
-
-				<md-input-container flex-gt-md="50">
-					<label>Contact Number</label>
-					<input type="number"  name="phone" ng-model="vm.user.phone" class="custom-input"/>
-				</md-input-container>
-			</div>
-			<div layout-gt-md="row">
-				<md-input-container flex-gt-md="50">
-						<label>Company Name</label>
-						<input type="text"  name="company" ng-model="vm.user.company_name" class="custom-input"/>
-					</md-input-container>
-				<md-input-container flex-gt-md="50">
-					<label>Location</label>
-					<input type="text"  name="city" ng-model="vm.user.city" class="custom-input"/>
-				</md-input-container>
-			</div>
-			<div layout-gt-md="row">
-					<md-input-container flex-gt-md="100">
-							<label> Technology you worked on: (eg. web developer, lawyer)</label>
-							<input type="text"  name="company" ng-model="vm.user.technology" class="custom-input"/>
-						</md-input-container>
-			</div>
-			<div layout-gt-md="row">
-				<md-input-container flex-gt-md="50">
-					<md-radio-group ng-model="vm.user.gender" class="font-s-18 black">
-						<md-radio-button value="female" class="md-accent">Female</md-radio-button>
-						<md-radio-button value="male" class="md-accent"> Male </md-radio-button>
-					</md-radio-group>
-				</md-input-container>
-				<md-input-container flex-gt-md="50">
-					<md-switch class="md-accent" name="isJoining" ng-model="vm.user.is_joining" required>
-						<span class="font-s-18 black">Are you Interested for this event?</span>
-					</md-switch>
-					<div ng-messages="registerForm.isJoining.$error">
-						<div ng-message="required">
-							<span class="font-s-18 black">You must enable this options before you can proceed.</span>
-						</div>
-					</div>
-					</md-input-container>
-			</div>	
-			<md-input-container class="md-block">
-				<md-checkbox name="tos" ng-model="vm.tos" required class="md-accent">
-					<span class="font-s-18 black">I understand all the terms and condition for this hackathon.</span>
-				</md-checkbox>
-				<div ng-messages="registerForm.tos.$error" multiple md-auto-hide="false">
-					<div ng-message="required">
-						You must accept the terms of service before you can proceed.
-					</div>
-				</div>
-			</md-input-container>
-			<div class="center">
-				<md-button class="md-raised md-large-button p-0 has-black" ng-disabled="registerForm.$invalid" type="submit"> 
-					<md-progress-linear ng-if="vm.isLoading" md-mode="indeterminate" class="md-accent"></md-progress-linear>
-						Register
-				</md-button>
-				<md-button ng-click="vm.goBack()" class=" md-raised md-large-button">cancel</md-button>
-			</div>
-		</form>
-	</div>
+					</md-content>
+		<!--	</md-tab>
+		</md-tabs>
+-->

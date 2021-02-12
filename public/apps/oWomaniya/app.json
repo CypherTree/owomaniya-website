@@ -24,22 +24,36 @@
   ],
   "components": [
     "avatar/avatar.js",
-    "img-upload/img-upload.js"
+    "img-upload/img-upload.js",
+    "ow-footer/ow-footer.js",
+    "google-location/google-location.js",
+    "social-accounts/social-accounts.js"
   ],
   "files": [
     "app.js",
     "home/home.js",
-    "profile/profile.js",
     "navbar/navbar.js",
     "register/register.js",
-    "user-list/user-list.js"
+    "user-list/user-list.js",
+    "host-list/host-list.js",
+    "host-detail/host-detail.js",
+    "create-host/create-host.js"
   ],
+  "cdns": [
+    {
+      "url": "https://maps.googleapis.com/maps/api/js",
+      "params": [
+        { "key": "libraries", "value": "places" },
+        { "key": "key", "config": "googleApiKey" }
+      ]
+    }
+],
   "config": {
     "local": {
-
+      "googleApiKey": "AIzaSyDZ-eMJ7Nl5rmRNP_ncsg9XYaZE4pyvdJY"
     },
     "production": {
-
+      "googleApiKey": "AIzaSyDZ-eMJ7Nl5rmRNP_ncsg9XYaZE4pyvdJY"
     }
   }
 }

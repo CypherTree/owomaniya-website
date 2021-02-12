@@ -1,0 +1,82 @@
+.cs-social-item {
+  margin-bottom: 15px;
+
+  .form {
+    &-group {
+      margin-bottom: 0;
+    }
+
+    &-control {
+      &.ng-dirty.ng-invalid {
+        border-color: #D9534F;
+      }
+    }
+  }
+
+  .group {
+    &-form {
+      padding-right: 20px;
+      position: relative;
+      display: block;
+      padding-right: 36px;
+    }
+
+   
+
+    &-type {
+      position: relative;
+      padding-left: 43px;
+    }
+
+    &-icn {
+      @size: 32px;
+      position: absolute;
+      left: 0px;
+      top: 1px;
+      width: @size;
+      height: @size;
+      line-height: @size;
+
+      img {
+        display: block;
+        width: 100%;
+      }
+
+      &-font {
+        width: @size;
+        height: @size;
+        line-height: @size + 2;
+        overflow: hidden;
+        text-align: center;
+        border-radius: 50%;
+        color: #ffffff;
+        background-color: #8F8F8F;
+        font-size: 18px;
+
+        &.fa-reddit {
+          background-color: #FF1A00;
+          font-size: 20px;
+        }
+
+        &.fa-slideshare {
+          background-color: #5697B4;
+        }
+
+        &.fa-chain-broken {
+          background-color: #D9534F;
+        }
+      }
+    }
+  }
+}
+.m-l-r-20{
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+}
+.m-t-10{
+  margin-top: 10px;
+}
+
+.m-l-3{
+  margin-left:3px;
+}

@@ -10,8 +10,8 @@
     "node": ">=0.10"
   },
   "dependencies": {
-    "express": "~4.15.2",
-    "firebase-tools": "^6.1.0",
+    "express": "^4.16.4",
+    "firebase-tools": "^6.3.1",
     "google-closure-library": "^20180910.0.0",
     "gulp-ng-annotate": "^2.1.0",
     "gulp-shell": "^0.6.5",

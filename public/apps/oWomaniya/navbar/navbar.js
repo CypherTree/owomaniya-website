@@ -9,8 +9,8 @@ var navbar = {
 };
 
 
-NavbarCtrl.$inject = ['$scope','$location'];
-function NavbarCtrl ($scope, $location) {
+NavbarCtrl.$inject = ['$state','$location'];
+function NavbarCtrl ($state, $location) {
     var vm = this;
     vm.loginWithEmailAndPwd = function () {
       firebase.auth().signInWithEmailAndPassword(vm.email, vm.password).catch(function(error) {
@@ -26,6 +26,9 @@ function NavbarCtrl ($scope, $location) {
       });
     },
     vm.setTabSelected = function(route) {
+      if( $location.path() === '/') {
+        $location.path('/home');
+      }
       return route === $location.path();
     };
     vm.signIn = function () {
@@ -74,6 +77,8 @@ function NavbarCtrl ($scope, $location) {
   vm.goto = function (tab) {
     if ( tab == 'about') {
       window.open('https://cyphertree.com/about-us/', '_blank');
+    } else if(tab == 'meetup'){
+      window.open("https://www.meetup.com/oWomaniya/events/258183210/?_xtd=gqFyqTE4NTM0Nzc2OKFwo3dlYg&from=ref", '_blank');
     }
   }
 }

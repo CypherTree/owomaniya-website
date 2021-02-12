@@ -1,0 +1,27 @@
+<div id="link_grp_{{vm.indexCount}}" class="row cs-social-item m-l-3">
+  <ng-form name="{{vm.getFormName()}}" style="width:99%" >
+    <input type="hidden" name="id" ng-model="vm.item.id" ng-if="vm.item.id">
+    <input type="hidden" name="{{vm.optionName}}" ng-model="vm.item.type">
+    <input type="hidden" name="_destroy" ng-model="vm.item._destroy" ng-if="vm.item._destroy">
+    <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12" style="display: flex;">
+      <!-- <div class="group-type">
+        <div class="group-icn"> -->
+          <img ng-if="!vm.item.type && !vm.thisForm[vm.inputName].$dirty" ng-src="assets/img/social-icon/others.png" class="cs-avatar-med m-t-10">
+          <span ng-if="!vm.item.type && vm.thisForm[vm.inputName].$dirty && vm.thisForm[vm.inputName].$invalid" class="m-t-10 fa fa-chain-broken"></span>
+          <img ng-if="vm.item.type && vm.item.type != 'Reddit' && vm.item.type != 'Slideshare'"  ng-src="{{vm.item.type | iconFileName}}" alt="{{vm.item.type}}" title="{{vm.item.type}}" class="cs-avatar-med m-t-10"/>
+          <span ng-if="vm.item.type && (vm.item.type == 'Reddit' || vm.item.type == 'Slideshare')" class="m-t-10 fa" ng-class="{'fa-reddit': vm.item.type == 'Reddit', 'fa-slideshare': vm.item.type == 'Slideshare'}"></span>
+        
+          <input type="text" name="{{vm.inputName}}"
+            ng-model="vm.item.link"
+            class="custom-input m-l-r-20"
+            placeholder="Enter account profile URL"
+            pattern="(https?:\/\/)?[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:/~+#-]*[\w@?^=%&amp;/~+#-])?"
+            required>
+        <!-- </div>
+      </div> -->
+      <a  href ng-if="vm.removable" ng-click="vm.removeItem()" ><i class="far fa-times-circle fa-2x"></i></a>
+    </div>
+  </div>
+  </ng-form>
+</div>

@@ -9,11 +9,14 @@ angular.module('oWomaniya', [
   'ngMaterial',
   'navbar',
   'home',
+  'ow-footer',
   'firebase',
-  'profile',
   'register',
   'users',
-  'ngMap'
+  'ngMap',
+  'hosts',
+  'host-detail',
+  'create-host'
 ])
 
 /**

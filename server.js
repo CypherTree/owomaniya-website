@@ -71,7 +71,7 @@ function serve (name, res) {
 
   fs.readFile(__dirname + file, 'utf8', function (err, text) {
     var files = [];
-
+    var cdns = [];
     files = app.dependencies.map(paths('bower_components/'));
 
     if (app.components) {
@@ -92,6 +92,30 @@ function serve (name, res) {
       }
     }
 
+
+    if (app.cdns) {
+      cdns = app.cdns.map(function(cdn) {
+        var url = '';
+        if ((typeof cdn) === 'object') {
+          url = cdn.url;
+          if (cdn.params && cdn.params.length > 0) {
+            url = url + '?';
+            cdn.params.forEach(function(param, index) {
+              url = url + (index > 0 ? '&' + param.key + '=':param.key + '=');
+
+              if (param.value) { url = url + param.value; }
+              else if (param.config) { url = url + app.config.local[param.config]; }
+            });
+          }
+        }
+        else { url = cdn; }
+
+        return '<script type="text/javascript" src="' + url + '"' + (cdn.async ? ' async':'') + (cdn.defer ? ' defer':'') + '></script>';
+      });
+    }
+    var config = '<script>window.CONFIG = window.CONFIG || ' + JSON.stringify(app.config.local) + '</script>';
+    text = text.replace('<!-- INSERT_CONFIG -->', config);
+    text = text.replace('<!-- INSERT_CDNS -->', cdns.join('\n'));
     text = text.replace('<!-- INSERT_SCRIPTS -->', files.join('\n'));
     res.send(text);
   });

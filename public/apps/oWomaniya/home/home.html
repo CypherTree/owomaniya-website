@@ -4,19 +4,26 @@
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner">
 			<div class="item active">
-			<img src="/assets/img/wit.jpg" alt="Los Angeles" style="width:100%;">
+			<img src="/assets/img/oWomaniyaImage.png" alt="Los Angeles" style="width:100%;">
 			<div class="carousel-caption  d-md-block d-none caption-block">
 				<h2 class="font-s-70 m-b-2"><b>Hackathon For Women</b></h2>
-				<h5 class="m-b-2">19th January, 2019</h5>
+				<h5 class="m-b-2">
+					16th March, 2019</h5>
 				<a ui-sref="register">
 						<button type="submit" class="md-raised md-primary md-ink-ripple register-btn m-t-25">Register</button>
+				</a>
+				<a ui-sref="create-host">
+					<button type="submit" class="md-raised md-primary md-ink-ripple register-btn m-t-25 m-l-10">Host a Hackathon</button>
 				</a>
 			</div>
 			<div class="carousel-caption d-block d-sm-none mob-caption-block">
 					<h2 class=" m-b-2"><b>Hackathon For Women</b></h2>
-					<h5 class="m-b-2">19th January, 2019</h5>
+					<h5 class="m-b-2">16th March, 2019</h5>
 					<a ui-sref="register" class="m-t-25">
 						<button type="submit" class="md-raised md-primary md-ink-ripple mob-register-btn">Register</button>
+					</a>
+					<a ui-sref="create-host">
+						<button type="submit" class="md-raised md-primary md-ink-ripple mob-register-btn m-t-25 p-b-10">Host a Hackathon</button>
 					</a>
 				</div>
 			</div>
@@ -33,7 +40,7 @@
 					<div class="col-md-12 has-text-grey font-s-17 ">
 						<p class="panel-body text-justify m-l-r-8 m-t-5">As a coder, We  continuously try and motivates other women coder to take up the technical job. As per our recent studies, women are not very inclined to take up the coding job. It's not because they are not capable its because they lack confidence. Many women are more inclined towards their position in starting year and drift because of additional personal responsibilities. our ambition is to change this mindset. You can do all your chores and still be able to work. Many companies these days offer work from home which is changing the dynamics for women. We at Cyphertree are organizing an event oWomaniya which as a hackathon for women in tech. Our mission is to create a portal for Women in Need. It's not a portal to discuss problems, its a gateway to address issues and educate women about their rights and how to handle delicate situations. Especially with the #metoo movement.</p>
 						<p class="panel-body text-justify m-l-r-8">As a coder, we all can come together an develop the digital portal, that can help other women so that the next woman doesn't face the same situation. It's is a very constructive and positive approach to handle situations like; sexual harassment, gender pay gap, pregnancy discrimination, work-life imbalance and so on. As a coder, We feel responsible for building a positive and safe digital world for fellow females.</p>
-						<p class="panel-body text-justify m-l-r-8">What We  need is your support. This event is on 19th January 2019 in Viman Nagar, Pune. We are looking for sponsors and host. Cyphertree organizes this event in Pune. Our mission is to run this event across the country on the same day. So we are looking for more host in different cities to run this hackathon (oWomaniya.io)</p>
+						<p class="panel-body text-justify m-l-r-8">What We  need is your support. This event is on 16th March 2019 in Viman Nagar, Pune. We are looking for sponsors and host. Cyphertree organizes this event in Pune. Our mission is to run this event across the country on the same day. So we are looking for more host in different cities to run this hackathon (oWomaniya.io)</p>
 						<p class="panel-body text-justify m-l-r-8">Who can participate in this event? Coders (technology agnostic), designer, tester, content writer, social media manager, and lawyers.  Create a group of 2-4 and submit proof of the concept during the hackathon. The best three teams will be selected, and their project will be hosted as an open source project so that all other women can contribute to the same.</p>
 						<p class="panel-body text-justify m-l-r-8 m-b-5">It's an excellent opportunity for women who have a gap in their professional life and want to get back in the game. </p>
 					</div>
@@ -49,7 +56,7 @@
 									</div>
 									<div class="event_location_info">
 										<ul class="list-unstyled">
-											<li><p>Date</p><span>19th January, 2019</span></li>                        
+											<li><p>Date</p><span>16th March, 2019</span></li>                        
 											<li><p>Time</p><span>Sat 9:00am to Sun 9:00pm (24 hrs) </span></li>
 											<li><p>Perks</p><span>Lunch and Dinner will be provided.</span></li>                        
 											<li><p>Event resource</p><span>Hackathon For Women</span></li>  
@@ -57,7 +64,7 @@
 										</ul>                    
 										<ul class="list-unstyled">
 											<li><p class="hall_location">Location</p></li>                        
-											<li><p>Cyphertree Technology Pvt. Ltd.</p><span>406, Sky Max, Viman Nagar, Pune 411014, India.</span></li>
+											<li><p>Cyphertree Technology Pvt. Ltd.</p><span>307-308, Sky Max, Viman Nagar, Pune 411014, India.</span></li>
 											<li><p>Phone</p><span>+(91)-(020)-48618404</span></li>
 										</ul>
 									</div>
@@ -70,11 +77,12 @@
 								</div>
 								<div class="google_map">
 									<div class="google_map">
-										<div class="gmap" id="map">
+										    <div id="map"></div>
+										<!-- <div class="gmap" id="map">
 											<div class="mapouter"><div class="gmap_canvas">
 													<iframe id="gmap_canvas" src="https://maps.google.com/maps?q=cyphertree%2C%20dutta%20mandir%20chowk&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 												</div><style>.mapouter{text-align:right;}.gmap_canvas {overflow:hidden;background:none!important;}</style></div>
-										</div><!-- Ends: .gmap -->                    
+										</div>                   -->
 									</div>
 								</div>
 							</div> 
@@ -83,59 +91,33 @@
 					</div>
 				</div>
 			</div> 
+			<div class="container">  
+				<div class="row">
+					<div class="col-sm-12 col-md-6 col-lg-12">
+						<div class="location_bottom_wrapper">
+							<div class="col-md-8 col-sm-12 col-xs-12 m-b-8">
+								<div class="event_details m-t-0">
+									<div class="details_title">
+										<h3><a href="https://www.instagram.com/owomaniya.io/" target="_blank"><img src="assets/img/social-icon/instagram.png" width="30" height="30" class="m-l-5"/></a> <span class="m-l-5" >We're on Instagram.</span> </h3>
+									</div>
+									<div>
+										<iframe src="https://instaembedder.com/gallery-v2.php?width=200&cols=3&rows=1&margin=8&color=gray&likes=1&frame=1&image_border=8&frame_color=white&cid=10030&" frameborder="0" width="675" height="244" ></iframe>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-xs-12 col-sm-12 m-b-8">
+						   <div class="event_location_map m-t-0">
+								<div class="details_title">
+									<h3>We're on Meetup.</h3>
+								</div>
+								<div class="">
+									<blockquote class="embedly-card"><h4><a href="https://www.meetup.com/oWomaniya/events/258183210/">Hackathon for Women in Tech</a></h4><p>Sat, Mar 16, 2019, 10:00 AM: This event is on 16th March 2019 in Viman Nagar, Pune. We are looking for sponsors and host. Cyphertree organizes this event in Pune. Our mission is to run this event acro</p></blockquote>
+									<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+								</div>
+							</div> 
+						</div>
+						</div>
+					</div>
+				</div>
+			</div> 
 		</section>
-
-<!--========={ Footer }========-->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">  
-                <div class="footer_single">
-                    <img src="/assets/img/oWomaniya-white.png" alt="" class="footer_logo img-fluid">
-                    <ul class="list-unstyled contact_info">
-                        <li>contact@cyphertree.com</li>
-                        <li>Call: +(91)-(020)-48618404</li>
-                    </ul>
-                    <div class="social_wraper">
-                        <ul class="social-items d-flex list-unstyled">
-                            <li><a href="https://www.facebook.com/cyphertree/"><i class="fab fa-facebook-f fb-icon"></i></a></li>
-                            <li><a href="https://twitter.com/cyphertree"><i class="fab fa-twitter twitt-icon"></i></a></li>
-                            <li><a href="https://www.linkedin.com/company/cyphertree-technologies-pvt-ltd"><i class="fab fa-linkedin-in link-icon"></i></a></li>
-                            <li><a href="https://www.instagram.com/owomaniya.io/"><i class="fab fa-instagram ins-icon"></i></a></li>
-                        </ul>
-                    </div>                    
-                </div> 
-            </div>    
-			<div class="col-12 col-sm-12 col-md-4 col-lg-4">
-				<div class="footer_single footer_signle_item_2">
-					<h3 class="footer_item_title">Location</h3> 
-					<ul class="list-unstyled">
-						<li><a href="#"> 406, Sky Max, Viman Nagar, Pune 411014, India.</a></li>
-					</ul>
-				</div> 
-			</div>
-			<div class="col-12 col-sm-12 col-md-4 col-lg-4">
-					<div class="footer_single footer_signle_item_2">
-						<h3 class="footer_item_title">Latest Tweets</h3> 
-						<ul class="list-unstyled">
-							<li><a class="twitter-timeline" data-lang="en" data-height="200" data-theme="dark" href="https://twitter.com/CypherTree?ref_src=twsrc%5Etfw">Tweets by CypherTree</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></li>
-						</ul>
-					</div> 
-			</div>
-        </div>
-    </div>   
-    <div class="copytight_info">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-12 col-lg-12 d-flex justify-content-between">
-                    <p>Copyright © oWomaniya 2018</p>
-                    <ul class="nav navbar list-unstyled">
-                        <li><a href="#">Terms</a></li>
-                        <li><a href="#">Condition</a></li>
-                        <li><a href="#">FAQS</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>                   
-</footer><!-- ./ End Footer -->
